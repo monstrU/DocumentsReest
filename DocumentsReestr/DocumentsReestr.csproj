@@ -91,6 +91,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReestrFacade\ReestrFacade.csproj">
+      <Project>{2BC21DFC-5807-4FAD-A0EF-C8B192AB4D2B}</Project>
+      <Name>ReestrFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReestrModel\ReestrModel.csproj">
+      <Project>{5A2E1109-6737-4C78-B074-ADA0E3A1DD74}</Project>
+      <Name>ReestrModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

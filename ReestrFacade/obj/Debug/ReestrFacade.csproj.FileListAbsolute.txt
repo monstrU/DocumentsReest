@@ -3,3 +3,10 @@ D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.pdb
 D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.csprojResolveAssemblyReference.cache
 D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.dll
 D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.pdb
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.Net4.dll
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.dll
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.dll
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.pdb
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.xml
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\DomainModel.dll
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\DomainModel.pdb

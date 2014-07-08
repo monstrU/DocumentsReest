@@ -5,7 +5,9 @@ using System.Text;
 
 namespace ReestrModel
 {
-    public class Class1
+    public class DocumentModel
     {
+        public int DocumentId { get; set; }
+        public string Name { get; set; }
     }
 }
