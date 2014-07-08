@@ -15,6 +15,7 @@ namespace DocumentsReestr
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var user = User.Identity;
             if (!Page.IsPostBack)
             {
                 IList<DocumentModel> list = DocumentFacade.LoadDocuments();
