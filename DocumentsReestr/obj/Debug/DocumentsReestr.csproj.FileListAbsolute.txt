@@ -8,3 +8,4 @@ D:\Reestr\DocumentsReest\DocumentsReestr\bin\ReestrFacade.dll
 D:\Reestr\DocumentsReest\DocumentsReestr\bin\ReestrModel.dll
 D:\Reestr\DocumentsReest\DocumentsReestr\bin\ReestrFacade.pdb
 D:\Reestr\DocumentsReest\DocumentsReestr\bin\ReestrModel.pdb
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\AutoMapper.Net4.dll
