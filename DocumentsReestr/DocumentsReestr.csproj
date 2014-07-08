@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\DefaultTheme\index_col2_css.css" />
     <Content Include="App_Themes\DefaultTheme\main_style.css" />
     <Content Include="default.aspx" />
     <Content Include="Web.config" />

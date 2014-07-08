@@ -10,18 +10,37 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="phTop" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        <div>
-            <asp:ContentPlaceHolder ID="phContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        <div>
+        <div class="container">
+            <div class="header">
+                <div class="title_block ">
+                    <img src="../../../Makets/Images/megafon_logo.png" alt="Логотип" /><h2>Мегафон / Контактный центр</h2>
+                </div>
+                <div class="settings_block">
+                    <a href="#aa" class="user_link">Сергей Дворецкий</a>
+                    <img style="" src="../../../Makets/Images/settings.gif" alt="Настройки пользователя" />
+
+                </div>
+                <asp:ContentPlaceHolder ID="phTop" runat="server">
+                </asp:ContentPlaceHolder>
+                
+
+            </div>
+            <div>
+                <div class="menu"><a href="#№цц">Поиск</a> <a href="#№цц">Навигация</a> <a href="#№цц">Разбор</a> </div>
+            </div>
+            <div class="content">
+                
+                <div class="position_menu"><a href="../../../Makets/index.html">начало</a> <span>></span> <span class="last_menu">страница</span></div>
+                <asp:ContentPlaceHolder ID="phContent" runat="server">
+                </asp:ContentPlaceHolder>
+                
+            </div>
+
             <asp:ContentPlaceHolder ID="phBottom" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
+
     </form>
 </body>
 </html>
