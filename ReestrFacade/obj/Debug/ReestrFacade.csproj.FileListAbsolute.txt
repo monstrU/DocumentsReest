@@ -1,0 +1,5 @@
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.dll
+D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.pdb
+D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.csprojResolveAssemblyReference.cache
+D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.dll
+D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.pdb

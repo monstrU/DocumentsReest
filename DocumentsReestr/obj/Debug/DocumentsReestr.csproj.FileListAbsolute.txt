@@ -1,0 +1,6 @@
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\DocumentsReestr.dll.config
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\DocumentsReestr.dll
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\DocumentsReestr.pdb
+D:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.csprojResolveAssemblyReference.cache
+D:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.dll
+D:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.pdb
