@@ -1,7 +1,7 @@
 USE [ReestrStore]
 GO
 
-/****** Object:  Table [dbo].[Documents]    Script Date: 07/09/2014 20:45:14 ******/
+/****** Object:  Table [dbo].[Documents]    Script Date: 07/09/2014 20:45:14 ****/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Documents]') AND type in (N'U'))
 DROP TABLE [dbo].[Documents]
 GO
