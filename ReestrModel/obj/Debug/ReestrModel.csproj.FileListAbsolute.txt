@@ -3,3 +3,4 @@ D:\Reestr\DocumentsReest\ReestrModel\bin\Debug\ReestrModel.dll
 D:\Reestr\DocumentsReest\ReestrModel\bin\Debug\ReestrModel.pdb
 D:\Reestr\DocumentsReest\ReestrModel\obj\Debug\ReestrModel.dll
 D:\Reestr\DocumentsReest\ReestrModel\obj\Debug\ReestrModel.pdb
+D:\Reestr\DocumentsReest\ReestrModel\obj\Debug\ReestrModel.csprojResolveAssemblyReference.cache
