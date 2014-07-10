@@ -23,5 +23,17 @@ namespace ReestrFacade
             }
             
         }
+
+        public static void SaveDocument(DocumentModel document)
+        {
+            using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
+            {
+                var converter = new DocumentConverter();
+                var dbDocument = converter.Convert(document);
+                dbDocument.CreatorUserId = new Guid("5D8E89C3-3CE6-44FD-B3E0-D52D5E67E5DD");
+                context.Documents.InsertOnSubmit(dbDocument);
+                context.SubmitChanges();
+            }
+        }
     }
 }

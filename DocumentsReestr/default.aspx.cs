@@ -24,5 +24,11 @@ namespace DocumentsReestr
             gvDocuments.DataSource = list;
             gvDocuments.DataBind();
         }
+
+        protected void pbtnAdd_AfterChildClose(object sender, RCO.PopUpButtons.PopUpItems e)
+        {
+            gvDocuments.PageIndex = 0;
+            this.LoadDocuments();
+        }
     }
 }

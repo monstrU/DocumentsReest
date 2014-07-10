@@ -24,7 +24,7 @@
 
         public Document Convert(DocumentModel obj)
         {
-            throw new System.NotImplementedException();
+            return Engine.Map<DocumentModel, Document>(obj);
         }
 
         public DocumentModel Convert(Document obj)

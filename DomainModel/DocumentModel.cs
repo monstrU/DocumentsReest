@@ -7,6 +7,8 @@
         public int DocumentId { get; set; }
         public string Name { get; set; }
         public int DocNumber { get; set; }
+
+        public DateTime Created { get; set; }
         
         /// <summary>
         /// дата приема

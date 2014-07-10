@@ -14,3 +14,4 @@ D:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.dll
 D:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.pdb
 D:\Reestr\DocumentsReest\DocumentsReestr\bin\PopUpButton.dll
 D:\Reestr\DocumentsReest\DocumentsReestr\bin\PopUpButton.pdb
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\AutoMapper.Net4.dll

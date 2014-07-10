@@ -107,3 +107,8 @@ a.command_link
     line-height: 1.2em;
     font-size: 90%;
 }
+.error_box 
+{
+    color: red;
+    font-weight: 700;    
+}

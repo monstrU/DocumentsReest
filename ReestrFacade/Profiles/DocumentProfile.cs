@@ -26,6 +26,14 @@ namespace ReestrFacade.Profiles
                 .ForMember(d => d.DocName, mo => mo.Ignore())
                 .ForMember(d => d.ControlTermExecution, mo => mo.Ignore());
 
+            this.CreateMap<DocumentModel, Document>()
+                .ForMember(d => d.DocSenderId, mo => mo.Ignore())
+                .ForMember(d => d.DocSender, mo => mo.Ignore())
+                .ForMember(d => d.DocNameId, mo => mo.Ignore())
+                .ForMember(d => d.DocName, mo => mo.Ignore())
+                .ForMember(d => d.CreatorUserId, mo => mo.Ignore())
+                .ForMember(d => d.aspnet_User, mo => mo.Ignore())
+                ;
         }
     }
 }

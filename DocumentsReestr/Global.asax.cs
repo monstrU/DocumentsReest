@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-
 namespace DocumentsReestr
 {
     using ReestrFacade.Configurations;
