@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocumentsReestr</RootNamespace>
+    <RootNamespace>DocumentsReestr.PopupButtons</RootNamespace>
     <AssemblyName>DocumentsReestr</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
@@ -102,6 +102,10 @@
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{B0A7E92D-E6B4-498C-B42D-BE5B9007E8D0}</Project>
       <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PopUpButton\PopUpButton.csproj">
+      <Project>{afd6b5e9-37f9-4ef4-b0bf-eed21c31482b}</Project>
+      <Name>PopUpButton</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReestrFacade\ReestrFacade.csproj">
       <Project>{2BC21DFC-5807-4FAD-A0EF-C8B192AB4D2B}</Project>
