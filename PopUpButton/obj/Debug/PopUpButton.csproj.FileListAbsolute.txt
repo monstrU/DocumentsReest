@@ -1,0 +1,10 @@
+D:\TFS\KAOT.IASU\Trunk\Project\WebProjects\PopUpButton\bin\Debug\PopUpButton.dll
+D:\TFS\KAOT.IASU\Trunk\Project\WebProjects\PopUpButton\bin\Debug\PopUpButton.pdb
+D:\TFS\KAOT.IASU\Trunk\Project\WebProjects\PopUpButton\obj\Debug\PopUpButton.dll
+D:\TFS\KAOT.IASU\Trunk\Project\WebProjects\PopUpButton\obj\Debug\PopUpButton.pdb
+D:\TFS\KAOT.IASU\Trunk\Project\WebProjects\PopUpButton\obj\Debug\PopUpButton.csprojResolveAssemblyReference.cache
+D:\Reestr\DocumentsReest\PopUpButton\bin\Debug\PopUpButton.dll
+D:\Reestr\DocumentsReest\PopUpButton\bin\Debug\PopUpButton.pdb
+D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.csprojResolveAssemblyReference.cache
+D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.dll
+D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.pdb
