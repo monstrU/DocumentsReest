@@ -30,9 +30,6 @@ namespace ReestrModel
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertDocument(Document instance);
-    partial void UpdateDocument(Document instance);
-    partial void DeleteDocument(Document instance);
     partial void InsertDocSender(DocSender instance);
     partial void UpdateDocSender(DocSender instance);
     partial void DeleteDocSender(DocSender instance);
@@ -42,6 +39,9 @@ namespace ReestrModel
     partial void Insertaspnet_User(aspnet_User instance);
     partial void Updateaspnet_User(aspnet_User instance);
     partial void Deleteaspnet_User(aspnet_User instance);
+    partial void InsertDocument(Document instance);
+    partial void UpdateDocument(Document instance);
+    partial void DeleteDocument(Document instance);
     #endregion
 		
 		public ReestrContextDataContext() : 
@@ -74,14 +74,6 @@ namespace ReestrModel
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Document> Documents
-		{
-			get
-			{
-				return this.GetTable<Document>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DocSender> DocSenders
 		{
 			get
@@ -105,405 +97,12 @@ namespace ReestrModel
 				return this.GetTable<aspnet_User>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Documents")]
-	public partial class Document : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DocumentId;
-		
-		private string _Name;
-		
-		private System.Nullable<System.DateTime> _Created;
-		
-		private System.Nullable<System.DateTime> _TermExecution;
-		
-		private System.Nullable<int> _DocSenderId;
-		
-		private System.Nullable<int> _DocNameId;
-		
-		private int _DocNumber;
-		
-		private string _SenderName;
-		
-		private System.DateTime _DateAdmission;
-		
-		private System.Guid _CreatorUserId;
-		
-		private EntityRef<DocSender> _DocSender;
-		
-		private EntityRef<DocName> _DocName;
-		
-		private EntityRef<aspnet_User> _aspnet_User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDocumentIdChanging(int value);
-    partial void OnDocumentIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnCreatedChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedChanged();
-    partial void OnTermExecutionChanging(System.Nullable<System.DateTime> value);
-    partial void OnTermExecutionChanged();
-    partial void OnDocSenderIdChanging(System.Nullable<int> value);
-    partial void OnDocSenderIdChanged();
-    partial void OnDocNameIdChanging(System.Nullable<int> value);
-    partial void OnDocNameIdChanged();
-    partial void OnDocNumberChanging(int value);
-    partial void OnDocNumberChanged();
-    partial void OnSenderNameChanging(string value);
-    partial void OnSenderNameChanged();
-    partial void OnDateAdmissionChanging(System.DateTime value);
-    partial void OnDateAdmissionChanged();
-    partial void OnCreatorUserIdChanging(System.Guid value);
-    partial void OnCreatorUserIdChanged();
-    #endregion
-		
-		public Document()
-		{
-			this._DocSender = default(EntityRef<DocSender>);
-			this._DocName = default(EntityRef<DocName>);
-			this._aspnet_User = default(EntityRef<aspnet_User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DocumentId
+		public System.Data.Linq.Table<Document> Documents
 		{
 			get
 			{
-				return this._DocumentId;
-			}
-			set
-			{
-				if ((this._DocumentId != value))
-				{
-					this.OnDocumentIdChanging(value);
-					this.SendPropertyChanging();
-					this._DocumentId = value;
-					this.SendPropertyChanged("DocumentId");
-					this.OnDocumentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created
-		{
-			get
-			{
-				return this._Created;
-			}
-			set
-			{
-				if ((this._Created != value))
-				{
-					this.OnCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._Created = value;
-					this.SendPropertyChanged("Created");
-					this.OnCreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TermExecution", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TermExecution
-		{
-			get
-			{
-				return this._TermExecution;
-			}
-			set
-			{
-				if ((this._TermExecution != value))
-				{
-					this.OnTermExecutionChanging(value);
-					this.SendPropertyChanging();
-					this._TermExecution = value;
-					this.SendPropertyChanged("TermExecution");
-					this.OnTermExecutionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSenderId", DbType="Int")]
-		public System.Nullable<int> DocSenderId
-		{
-			get
-			{
-				return this._DocSenderId;
-			}
-			set
-			{
-				if ((this._DocSenderId != value))
-				{
-					if (this._DocSender.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDocSenderIdChanging(value);
-					this.SendPropertyChanging();
-					this._DocSenderId = value;
-					this.SendPropertyChanged("DocSenderId");
-					this.OnDocSenderIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int")]
-		public System.Nullable<int> DocNameId
-		{
-			get
-			{
-				return this._DocNameId;
-			}
-			set
-			{
-				if ((this._DocNameId != value))
-				{
-					if (this._DocName.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDocNameIdChanging(value);
-					this.SendPropertyChanging();
-					this._DocNameId = value;
-					this.SendPropertyChanged("DocNameId");
-					this.OnDocNameIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL")]
-		public int DocNumber
-		{
-			get
-			{
-				return this._DocNumber;
-			}
-			set
-			{
-				if ((this._DocNumber != value))
-				{
-					this.OnDocNumberChanging(value);
-					this.SendPropertyChanging();
-					this._DocNumber = value;
-					this.SendPropertyChanged("DocNumber");
-					this.OnDocNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string SenderName
-		{
-			get
-			{
-				return this._SenderName;
-			}
-			set
-			{
-				if ((this._SenderName != value))
-				{
-					this.OnSenderNameChanging(value);
-					this.SendPropertyChanging();
-					this._SenderName = value;
-					this.SendPropertyChanged("SenderName");
-					this.OnSenderNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAdmission", DbType="DateTime NOT NULL")]
-		public System.DateTime DateAdmission
-		{
-			get
-			{
-				return this._DateAdmission;
-			}
-			set
-			{
-				if ((this._DateAdmission != value))
-				{
-					this.OnDateAdmissionChanging(value);
-					this.SendPropertyChanging();
-					this._DateAdmission = value;
-					this.SendPropertyChanged("DateAdmission");
-					this.OnDateAdmissionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatorUserId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid CreatorUserId
-		{
-			get
-			{
-				return this._CreatorUserId;
-			}
-			set
-			{
-				if ((this._CreatorUserId != value))
-				{
-					if (this._aspnet_User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCreatorUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._CreatorUserId = value;
-					this.SendPropertyChanged("CreatorUserId");
-					this.OnCreatorUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DocSender_Document", Storage="_DocSender", ThisKey="DocSenderId", OtherKey="DocSenderId", IsForeignKey=true)]
-		public DocSender DocSender
-		{
-			get
-			{
-				return this._DocSender.Entity;
-			}
-			set
-			{
-				DocSender previousValue = this._DocSender.Entity;
-				if (((previousValue != value) 
-							|| (this._DocSender.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DocSender.Entity = null;
-						previousValue.Documents.Remove(this);
-					}
-					this._DocSender.Entity = value;
-					if ((value != null))
-					{
-						value.Documents.Add(this);
-						this._DocSenderId = value.DocSenderId;
-					}
-					else
-					{
-						this._DocSenderId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DocSender");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DocName_Document", Storage="_DocName", ThisKey="DocNameId", OtherKey="DocNameId", IsForeignKey=true)]
-		public DocName DocName
-		{
-			get
-			{
-				return this._DocName.Entity;
-			}
-			set
-			{
-				DocName previousValue = this._DocName.Entity;
-				if (((previousValue != value) 
-							|| (this._DocName.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DocName.Entity = null;
-						previousValue.Documents.Remove(this);
-					}
-					this._DocName.Entity = value;
-					if ((value != null))
-					{
-						value.Documents.Add(this);
-						this._DocNameId = value.DocNameId;
-					}
-					else
-					{
-						this._DocNameId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DocName");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_Document", Storage="_aspnet_User", ThisKey="CreatorUserId", OtherKey="UserId", IsForeignKey=true)]
-		public aspnet_User aspnet_User
-		{
-			get
-			{
-				return this._aspnet_User.Entity;
-			}
-			set
-			{
-				aspnet_User previousValue = this._aspnet_User.Entity;
-				if (((previousValue != value) 
-							|| (this._aspnet_User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._aspnet_User.Entity = null;
-						previousValue.Documents.Remove(this);
-					}
-					this._aspnet_User.Entity = value;
-					if ((value != null))
-					{
-						value.Documents.Add(this);
-						this._CreatorUserId = value.UserId;
-					}
-					else
-					{
-						this._CreatorUserId = default(System.Guid);
-					}
-					this.SendPropertyChanged("aspnet_User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Document>();
 			}
 		}
 	}
@@ -991,6 +590,431 @@ namespace ReestrModel
 		{
 			this.SendPropertyChanging();
 			entity.aspnet_User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Documents")]
+	public partial class Document : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DocumentId;
+		
+		private string _Name;
+		
+		private System.Nullable<System.DateTime> _Created;
+		
+		private System.Nullable<System.DateTime> _TermExecution;
+		
+		private System.Nullable<int> _DocSenderId;
+		
+		private System.Nullable<int> _DocNameId;
+		
+		private int _DocNumber;
+		
+		private string _SenderName;
+		
+		private System.DateTime _DateAdmission;
+		
+		private System.Guid _CreatorUserId;
+		
+		private string _Comments;
+		
+		private EntityRef<aspnet_User> _aspnet_User;
+		
+		private EntityRef<DocName> _DocName;
+		
+		private EntityRef<DocSender> _DocSender;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDocumentIdChanging(int value);
+    partial void OnDocumentIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCreatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedChanged();
+    partial void OnTermExecutionChanging(System.Nullable<System.DateTime> value);
+    partial void OnTermExecutionChanged();
+    partial void OnDocSenderIdChanging(System.Nullable<int> value);
+    partial void OnDocSenderIdChanged();
+    partial void OnDocNameIdChanging(System.Nullable<int> value);
+    partial void OnDocNameIdChanged();
+    partial void OnDocNumberChanging(int value);
+    partial void OnDocNumberChanged();
+    partial void OnSenderNameChanging(string value);
+    partial void OnSenderNameChanged();
+    partial void OnDateAdmissionChanging(System.DateTime value);
+    partial void OnDateAdmissionChanged();
+    partial void OnCreatorUserIdChanging(System.Guid value);
+    partial void OnCreatorUserIdChanged();
+    partial void OnCommentsChanging(string value);
+    partial void OnCommentsChanged();
+    #endregion
+		
+		public Document()
+		{
+			this._aspnet_User = default(EntityRef<aspnet_User>);
+			this._DocName = default(EntityRef<DocName>);
+			this._DocSender = default(EntityRef<DocSender>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DocumentId
+		{
+			get
+			{
+				return this._DocumentId;
+			}
+			set
+			{
+				if ((this._DocumentId != value))
+				{
+					this.OnDocumentIdChanging(value);
+					this.SendPropertyChanging();
+					this._DocumentId = value;
+					this.SendPropertyChanged("DocumentId");
+					this.OnDocumentIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Created
+		{
+			get
+			{
+				return this._Created;
+			}
+			set
+			{
+				if ((this._Created != value))
+				{
+					this.OnCreatedChanging(value);
+					this.SendPropertyChanging();
+					this._Created = value;
+					this.SendPropertyChanged("Created");
+					this.OnCreatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TermExecution", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TermExecution
+		{
+			get
+			{
+				return this._TermExecution;
+			}
+			set
+			{
+				if ((this._TermExecution != value))
+				{
+					this.OnTermExecutionChanging(value);
+					this.SendPropertyChanging();
+					this._TermExecution = value;
+					this.SendPropertyChanged("TermExecution");
+					this.OnTermExecutionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSenderId", DbType="Int")]
+		public System.Nullable<int> DocSenderId
+		{
+			get
+			{
+				return this._DocSenderId;
+			}
+			set
+			{
+				if ((this._DocSenderId != value))
+				{
+					if (this._DocSender.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDocSenderIdChanging(value);
+					this.SendPropertyChanging();
+					this._DocSenderId = value;
+					this.SendPropertyChanged("DocSenderId");
+					this.OnDocSenderIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int")]
+		public System.Nullable<int> DocNameId
+		{
+			get
+			{
+				return this._DocNameId;
+			}
+			set
+			{
+				if ((this._DocNameId != value))
+				{
+					if (this._DocName.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDocNameIdChanging(value);
+					this.SendPropertyChanging();
+					this._DocNameId = value;
+					this.SendPropertyChanged("DocNameId");
+					this.OnDocNameIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL")]
+		public int DocNumber
+		{
+			get
+			{
+				return this._DocNumber;
+			}
+			set
+			{
+				if ((this._DocNumber != value))
+				{
+					this.OnDocNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DocNumber = value;
+					this.SendPropertyChanged("DocNumber");
+					this.OnDocNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string SenderName
+		{
+			get
+			{
+				return this._SenderName;
+			}
+			set
+			{
+				if ((this._SenderName != value))
+				{
+					this.OnSenderNameChanging(value);
+					this.SendPropertyChanging();
+					this._SenderName = value;
+					this.SendPropertyChanged("SenderName");
+					this.OnSenderNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAdmission", DbType="DateTime NOT NULL")]
+		public System.DateTime DateAdmission
+		{
+			get
+			{
+				return this._DateAdmission;
+			}
+			set
+			{
+				if ((this._DateAdmission != value))
+				{
+					this.OnDateAdmissionChanging(value);
+					this.SendPropertyChanging();
+					this._DateAdmission = value;
+					this.SendPropertyChanged("DateAdmission");
+					this.OnDateAdmissionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatorUserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid CreatorUserId
+		{
+			get
+			{
+				return this._CreatorUserId;
+			}
+			set
+			{
+				if ((this._CreatorUserId != value))
+				{
+					if (this._aspnet_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatorUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._CreatorUserId = value;
+					this.SendPropertyChanged("CreatorUserId");
+					this.OnCreatorUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comments", DbType="NVarChar(1000)")]
+		public string Comments
+		{
+			get
+			{
+				return this._Comments;
+			}
+			set
+			{
+				if ((this._Comments != value))
+				{
+					this.OnCommentsChanging(value);
+					this.SendPropertyChanging();
+					this._Comments = value;
+					this.SendPropertyChanged("Comments");
+					this.OnCommentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_Document", Storage="_aspnet_User", ThisKey="CreatorUserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_User aspnet_User
+		{
+			get
+			{
+				return this._aspnet_User.Entity;
+			}
+			set
+			{
+				aspnet_User previousValue = this._aspnet_User.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_User.Entity = null;
+						previousValue.Documents.Remove(this);
+					}
+					this._aspnet_User.Entity = value;
+					if ((value != null))
+					{
+						value.Documents.Add(this);
+						this._CreatorUserId = value.UserId;
+					}
+					else
+					{
+						this._CreatorUserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DocName_Document", Storage="_DocName", ThisKey="DocNameId", OtherKey="DocNameId", IsForeignKey=true)]
+		public DocName DocName
+		{
+			get
+			{
+				return this._DocName.Entity;
+			}
+			set
+			{
+				DocName previousValue = this._DocName.Entity;
+				if (((previousValue != value) 
+							|| (this._DocName.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DocName.Entity = null;
+						previousValue.Documents.Remove(this);
+					}
+					this._DocName.Entity = value;
+					if ((value != null))
+					{
+						value.Documents.Add(this);
+						this._DocNameId = value.DocNameId;
+					}
+					else
+					{
+						this._DocNameId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DocName");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DocSender_Document", Storage="_DocSender", ThisKey="DocSenderId", OtherKey="DocSenderId", IsForeignKey=true)]
+		public DocSender DocSender
+		{
+			get
+			{
+				return this._DocSender.Entity;
+			}
+			set
+			{
+				DocSender previousValue = this._DocSender.Entity;
+				if (((previousValue != value) 
+							|| (this._DocSender.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DocSender.Entity = null;
+						previousValue.Documents.Remove(this);
+					}
+					this._DocSender.Entity = value;
+					if ((value != null))
+					{
+						value.Documents.Add(this);
+						this._DocSenderId = value.DocSenderId;
+					}
+					else
+					{
+						this._DocSenderId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DocSender");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
