@@ -1,11 +1,27 @@
 ﻿namespace ReestrFacade.Converters
 {
+    using AutoMapper;
+    using AutoMapper.Mappers;
+
+    using DomainModel;
+
     using ReestrFacade.Interfaces;
+    using ReestrFacade.Profiles;
 
     using ReestrModel;
 
     public class DocumentConverter : IObjectConverter<Document, DocumentModel>
     {
+        private IMappingEngine Engine { get; set; }
+
+        public DocumentConverter()
+        {
+            ConfigurationStore store = new ConfigurationStore(new TypeMapFactory(), MapperRegistry.Mappers);
+            store.AddProfile<DocumentProfile>();
+            Engine = new MappingEngine(store);
+
+        }
+
         public Document Convert(DocumentModel obj)
         {
             throw new System.NotImplementedException();
@@ -13,12 +29,15 @@
 
         public DocumentModel Convert(Document obj)
         {
+            return Engine.Map<Document, DocumentModel>(obj);
 
-            return new DocumentModel()
+            /*return new DocumentModel()
             {
                 DocumentId = obj.DocumentId,
-                Name = obj.Name
-            };
+                Name = obj.Name,
+                DocNumber = obj.DocNumber,
+                DateAdmission = obj.DateAdmission
+            };*/
         }
     }
 }

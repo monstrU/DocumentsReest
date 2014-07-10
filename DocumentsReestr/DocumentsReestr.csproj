@@ -62,6 +62,7 @@
     <Content Include="App_Themes\DefaultTheme\index_col2_css.css" />
     <Content Include="App_Themes\DefaultTheme\main_style.css" />
     <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +72,9 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Masters\default.Master.cs">
       <DependentUpon>default.Master</DependentUpon>
@@ -92,15 +96,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Start\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{B0A7E92D-E6B4-498C-B42D-BE5B9007E8D0}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReestrFacade\ReestrFacade.csproj">
       <Project>{2BC21DFC-5807-4FAD-A0EF-C8B192AB4D2B}</Project>
       <Name>ReestrFacade</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReestrModel\ReestrModel.csproj">
-      <Project>{5A2E1109-6737-4C78-B074-ADA0E3A1DD74}</Project>
-      <Name>ReestrModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

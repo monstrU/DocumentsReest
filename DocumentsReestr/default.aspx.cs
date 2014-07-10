@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DocumentsReestr
 {
-    using ReestrFacade;
+    using DomainModel;
 
-    using ReestrModel;
+    using ReestrFacade;
 
     public partial class _default : System.Web.UI.Page
     {
@@ -18,8 +14,15 @@ namespace DocumentsReestr
             var user = User.Identity;
             if (!Page.IsPostBack)
             {
-                IList<DocumentModel> list = DocumentFacade.LoadDocuments();
+                LoadDocuments();
             }
+        }
+
+        private void LoadDocuments()
+        {
+            IList<DocumentModel> list = DocumentFacade.LoadDocuments();
+            gvDocuments.DataSource = list;
+            gvDocuments.DataBind();
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 
 namespace ReestrFacade
 {
+    using DomainModel;
+
     using ReestrFacade.Converters;
 
     using ReestrModel;

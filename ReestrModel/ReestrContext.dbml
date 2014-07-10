@@ -1,9 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ReestrStore" Class="ReestrContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=VVV;Initial Catalog=ReestrStore;Integrated Security=True" SettingsObjectName="ReestrModel.Properties.Settings" SettingsPropertyName="ReestrStoreConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=VVV;Initial Catalog=ReestrStore;Integrated Security=True" SettingsObjectName="ReestrModel.Properties.Settings" SettingsPropertyName="ReestrStoreConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Documents" Member="Documents">
     <Type Name="Document">
       <Column Name="DocumentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TermExecution" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DocSenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocNameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SenderName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdmission" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatorUserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="DocSender_Document" Member="DocSender" ThisKey="DocSenderId" OtherKey="DocSenderId" Type="DocSender" IsForeignKey="true" />
+      <Association Name="DocName_Document" Member="DocName" ThisKey="DocNameId" OtherKey="DocNameId" Type="DocName" IsForeignKey="true" />
+      <Association Name="aspnet_User_Document" Member="aspnet_User" ThisKey="CreatorUserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocSenders" Member="DocSenders">
+    <Type Name="DocSender">
+      <Column Name="DocSenderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SenderName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="DocSender_Document" Member="Documents" ThisKey="DocSenderId" OtherKey="DocSenderId" Type="Document" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocNames" Member="DocNames">
+    <Type Name="DocName">
+      <Column Name="DocNameId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TermExecutionDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DocName_Document" Member="Documents" ThisKey="DocNameId" OtherKey="DocNameId" Type="Document" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_Document" Member="Documents" ThisKey="UserId" OtherKey="CreatorUserId" Type="Document" />
     </Type>
   </Table>
 </Database>
