@@ -26,9 +26,18 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             }
         }
 
+        public int docId
+        {
+            get
+            {
+                return Convert.ToInt32(Request.QueryString["docId"]);
+            }
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
             CancelButton = btnCancel;
+            fvDocument.ChangeMode(FormViewMode.Edit);
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,9 +50,17 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 else
                 {
                     fvDocument.ChangeMode(FormViewMode.Edit);
+                    this.LoadDocument(docId);
                 }
 
             }   
+        }
+
+        private void LoadDocument(int documentId)
+        {
+            var doc = DocumentFacade.LoadDocument(documentId);
+            fvDocument.DataSource = new object[] { doc };
+            fvDocument.DataBind();
         }
 
         private DocumentModel ReadDocument()

@@ -14,15 +14,14 @@
     <script src="/Scripts/jquery.ui.datepicker-ru.js"></script>
     <script src="/Scripts/jquery.maskedinput.min.js"></script>
     <style type="text/css">
-        .datepicker 
-        {
-            width: 12ex;    
+        .datepicker {
+            width: 12ex;
         }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
             $.datepicker.setDefaults($.datepicker.regional["ru"]);
-            
+
             $(".datepicker").mask("99.99.9999");
             $(".datepicker").datepicker(
             {
@@ -36,7 +35,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:FormView ID="fvDocument" runat="server">
+            <asp:FormView ID="fvDocument" runat="server" RenderOuterTable="False" ItemType="DomainModel.DocumentModel">
                 <InsertItemTemplate>
                     <table>
                         <tr>
@@ -68,12 +67,43 @@
                             <td>
                                 <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
                     </table>
                 </InsertItemTemplate>
+                <EditItemTemplate>
+                    <table>
+                        <tr>
+                            <td>название документа</td>
+                            <td>
+                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.Name %>'></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                        </tr>
+                        <tr>
+                            <td>дата приема</td>
+                            <td>
+                                <asp:TextBox ID="txtDateAdmission" runat="server" CssClass="datepicker" Text="<%# Item.DateAdmission %>"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ФИО отправителя</td>
+                            <td>
+                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.SenderName %>"></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>срок исполнения</td>
+                            <td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="datepicker" Text="<%# Item.TermExecution %>"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td>комментарии</td>
+                            <td>
+                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>"></asp:TextBox></td>
+                        </tr>
+                    </table>
+                </EditItemTemplate>
+
             </asp:FormView>
 
             <input type="hidden" id="idDocNameText" clientidmode="Static" runat="server" />

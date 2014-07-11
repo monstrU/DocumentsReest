@@ -15,8 +15,12 @@
 
 
 
-        <asp:GridView ID="gvDocuments" runat="server" ItemType="DomainModel.DocumentModel" AutoGenerateColumns="False" DataKeyNames="DocumentId">
+        <asp:GridView ID="gvDocuments" runat="server" ItemType="DomainModel.DocumentModel" AutoGenerateColumns="False" DataKeyNames="DocumentId" OnRowDataBound="gvDocuments_RowDataBound">
             <Columns>
+                <asp:TemplateField >
+                    <ItemTemplate><asp:PopUpButton ID="pbtnEditDoc" runat="server" Text="ред" ControlShowType="HyperLink" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px">
+                                  </asp:PopUpButton></ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="DocNumber" HeaderText="номер документа" />
                 <asp:BoundField DataField="Name" HeaderText="название" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />

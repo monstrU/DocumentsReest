@@ -3,7 +3,11 @@ using System.Collections.Generic;
 
 namespace DocumentsReestr
 {
+    using System.Web.UI.WebControls;
+
     using DomainModel;
+
+    using RCO.PopUpButtons;
 
     using ReestrFacade;
 
@@ -29,6 +33,22 @@ namespace DocumentsReestr
         {
             gvDocuments.PageIndex = 0;
             this.LoadDocuments();
+        }
+
+        protected void gvDocuments_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var pbtnEditDoc = e.Row.FindControl("pbtnEditDoc") as PopUpButton;
+                if (pbtnEditDoc != null)
+                {
+                    var doc = e.Row.DataItem as DocumentModel;
+                    if (doc != null)
+                    {
+                        pbtnEditDoc.PostParams.Add(new paramItem("docId", doc.DocumentId.ToString()));
+                    }
+                }
+            }
         }
     }
 }

@@ -35,5 +35,16 @@ namespace ReestrFacade
                 context.SubmitChanges();
             }
         }
+
+        public static DocumentModel LoadDocument(int documentId)
+        {
+            using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
+            {
+                
+               var dbDoc= context.Documents.SingleOrDefault(d => d.DocumentId == documentId);
+               var converter = new DocumentConverter();
+                return converter.Convert(dbDoc);
+            }
+        }
     }
 }
