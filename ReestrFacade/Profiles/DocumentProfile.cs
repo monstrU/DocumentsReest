@@ -24,9 +24,10 @@ namespace ReestrFacade.Profiles
         {
             
             this.CreateMap<DocName, DocNameModel>();
+            this.CreateMap<DocSender, DocSenderModel>();
 
             this.CreateMap<Document, DocumentModel>()
-                .ForMember(d => d.DocSender, mo => mo.Ignore())
+                .ForMember(d => d.DocSender, mo => mo.MapFrom(d => d.DocSender))
                 .ForMember(d => d.DocName, mo => mo.MapFrom(d => d.DocName));
 
             this.CreateMap<DocumentModel, Document>()

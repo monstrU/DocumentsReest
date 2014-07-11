@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Карта документа</title>
+    <title>Карточка документа</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,7 +17,8 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server"></asp:TextBox><asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                                <asp:TextBox ID="txtDocName" runat="server"></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
                         </tr>
                         <tr>
                             <td>дата приема</td>
@@ -28,7 +29,9 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtSenderName" runat="server"></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                            </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
@@ -38,7 +41,7 @@
                         <tr>
                             <td>комментарии</td>
                             <td>
-                                <asp:TextBox ID="txtComments" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine"  Rows="5"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -51,7 +54,9 @@
             <input type="hidden" id="idDocNameText" clientidmode="Static" runat="server"/>
             <input type="hidden" id="idDocNameId" clientidmode="Static" runat="server"/>
             <input type="hidden" id="idTermExecution" clientidmode="Static" runat="server"/>
-
+            
+            <input type="hidden" id="idSenderId" clientidmode="Static" runat="server"/>
+            <input type="hidden" id="idSenderName" clientidmode="Static" runat="server"/>
         </div>
         <div>
             <asp:Label runat="server" ID="lblError" EnableViewState="false" CssClass="error_box"></asp:Label>

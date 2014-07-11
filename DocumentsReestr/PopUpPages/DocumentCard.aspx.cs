@@ -62,11 +62,22 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                   Name = idDocNameTextForm,
                                   TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
                               };
-                
             }
-            
-            
             doc.Name = docName;
+
+            var idSenderIdForm = idSenderId.Value;
+            var idSenderNameForm = idSenderName.Value;
+            var senderName = GetControlValue<TextBox>("txtSenderName").Text;
+            if (senderName.Equals(idSenderNameForm) && !string.IsNullOrEmpty(idSenderId.Value))
+            {
+                doc.DocSender= new DocSenderModel()
+                               {
+                                   DocSenderId = Convert.ToInt32(idSenderIdForm),
+                                   SenderName = senderName
+                               };
+            }
+
+            doc.SenderName = senderName;
             
 
             var comment = GetControlValue<TextBox>("txtComments").Text;
@@ -107,8 +118,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 doc.Created = DateTime.Now;
                 
                 doc.ControlTermExecution = DateTime.Now;
-                doc.DateAdmission= DateTime.Now;
-                doc.SenderName = "";
+                
+                
                 
                 DocumentFacade.SaveDocument(doc);
                 this.CloseDialog();
@@ -137,6 +148,15 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idTermExecution.Value = termExecution.ToString();
             GetControlValue<TextBox>("txtDocName").Text = docNameText.ToString();
             
+        }
+
+        protected void pbtnFio_OnAfterChildClose(object sender, PopUpItems e)
+        {
+            var senderId = e.Items["senderId"];
+            var senderNameId = e.Items["senderNameId"];
+            idSenderId.Value = senderId.ToString();
+            idSenderName.Value = senderNameId.ToString();
+            GetControlValue<TextBox>("txtSenderName").Text = senderNameId.ToString();
         }
     }
 }

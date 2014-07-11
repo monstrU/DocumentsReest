@@ -58,6 +58,24 @@ namespace DocumentsReestr.PopupButtons.PopUpPages {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden idTermExecution;
         
         /// <summary>
+        /// idSenderId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idSenderId;
+        
+        /// <summary>
+        /// idSenderName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idSenderName;
+        
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>

@@ -65,6 +65,7 @@
     <Content Include="Global.asax" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
+    <Content Include="PopUpPages\SenderName.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="PopUpPages\DocumentCard.aspx.designer.cs">
       <DependentUpon>DocumentCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpPages\SenderName.aspx.cs">
+      <DependentUpon>SenderName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpPages\SenderName.aspx.designer.cs">
+      <DependentUpon>SenderName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

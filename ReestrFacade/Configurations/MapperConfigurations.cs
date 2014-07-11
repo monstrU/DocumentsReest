@@ -12,6 +12,7 @@
             {
                 x.AddProfile<DocNamesProfile>();
                 x.AddProfile<DocumentProfile>();
+                x.AddProfile<DocSenderProfile>();
                 
             });
             Mapper.AssertConfigurationIsValid();

@@ -17,7 +17,7 @@
         public DocumentConverter()
         {
             ConfigurationStore store = new ConfigurationStore(new TypeMapFactory(), MapperRegistry.Mappers);
-            //store.AddProfile<DocNamesProfile>();
+            
             store.AddProfile<DocumentProfile>();
             Engine = new MappingEngine(store);
         }
@@ -31,13 +31,7 @@
         {
             return Engine.Map<Document, DocumentModel>(obj);
 
-            /*return new DocumentModel()
-            {
-                DocumentId = obj.DocumentId,
-                Name = obj.Name,
-                DocNumber = obj.DocNumber,
-                DateAdmission = obj.DateAdmission
-            };*/
+            
         }
     }
 }
