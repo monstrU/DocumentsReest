@@ -103,6 +103,7 @@
                         </tr>
                     </table>
                     <input type="hidden" id="idDocId" clientidmode="Static" runat="server"  value="<%# Item.DocumentId %>"/>
+                    
                 </EditItemTemplate>
 
             </asp:FormView>

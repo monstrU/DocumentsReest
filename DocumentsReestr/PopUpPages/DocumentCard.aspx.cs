@@ -60,6 +60,17 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             var doc = DocumentFacade.LoadDocument(documentId);
             fvDocument.DataSource = new object[] { doc };
+            if (doc.DocSender != null)
+            {
+                idSenderId.Value = doc.DocSender.DocSenderId.ToString();
+                idSenderName.Value = doc.DocSender.SenderName;
+            }
+            if (doc.DocName != null)
+            {
+                idDocNameId.Value = doc.DocName.DocNameId.ToString();
+                idDocNameText.Value = doc.DocName.Name;
+            }
+
             fvDocument.DataBind();
         }
 
@@ -113,6 +124,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             doc.TermExecution = ParseDateTime(termExecution);
 
 
+            
 
             return doc;
         }

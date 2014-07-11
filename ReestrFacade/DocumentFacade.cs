@@ -61,6 +61,7 @@ namespace ReestrFacade
                 dbDoc.SenderName = updateDoc.SenderName;
                 dbDoc.DateAdmission = updateDoc.DateAdmission;
                 dbDoc.TermExecution = updateDoc.TermExecution;
+
                 //dbDoc.ControlTermExecution = updateDoc.ControlTermExecution;
                 
                 context.SubmitChanges();
