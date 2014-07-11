@@ -63,6 +63,7 @@
     <Content Include="App_Themes\DefaultTheme\main_style.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -83,6 +84,13 @@
     </Compile>
     <Compile Include="Masters\default.Master.designer.cs">
       <DependentUpon>default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpPages\DocNames.aspx.cs">
+      <DependentUpon>DocNames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpPages\DocNames.aspx.designer.cs">
+      <DependentUpon>DocNames.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopUpPages\DocumentCard.aspx.cs">
       <DependentUpon>DocumentCard.aspx</DependentUpon>

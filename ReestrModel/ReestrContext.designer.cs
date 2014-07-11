@@ -621,6 +621,8 @@ namespace ReestrModel
 		
 		private string _Comments;
 		
+		private System.Nullable<System.DateTime> _ControlTermExecution;
+		
 		private EntityRef<aspnet_User> _aspnet_User;
 		
 		private EntityRef<DocName> _DocName;
@@ -653,6 +655,8 @@ namespace ReestrModel
     partial void OnCreatorUserIdChanged();
     partial void OnCommentsChanging(string value);
     partial void OnCommentsChanged();
+    partial void OnControlTermExecutionChanging(System.Nullable<System.DateTime> value);
+    partial void OnControlTermExecutionChanged();
     #endregion
 		
 		public Document()
@@ -891,6 +895,26 @@ namespace ReestrModel
 					this._Comments = value;
 					this.SendPropertyChanged("Comments");
 					this.OnCommentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ControlTermExecution", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ControlTermExecution
+		{
+			get
+			{
+				return this._ControlTermExecution;
+			}
+			set
+			{
+				if ((this._ControlTermExecution != value))
+				{
+					this.OnControlTermExecutionChanging(value);
+					this.SendPropertyChanging();
+					this._ControlTermExecution = value;
+					this.SendPropertyChanged("ControlTermExecution");
+					this.OnControlTermExecutionChanged();
 				}
 			}
 		}

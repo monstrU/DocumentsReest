@@ -11,7 +11,7 @@
             Mapper.Initialize(x =>
             {
                 x.AddProfile<DocumentProfile>();
-                
+                x.AddProfile<DocNamesProfile>();
             });
             Mapper.AssertConfigurationIsValid();
         }

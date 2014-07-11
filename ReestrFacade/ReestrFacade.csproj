@@ -50,9 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\MapperConfigurations.cs" />
+    <Compile Include="Converters\DocNamesConverter.cs" />
+    <Compile Include="DocNamesFacade.cs" />
     <Compile Include="DocumentFacade.cs" />
     <Compile Include="Converters\DocumentConverter.cs" />
     <Compile Include="Interfaces\IObjectConverter.cs" />
+    <Compile Include="Profiles\DocNamesProfile.cs" />
     <Compile Include="Profiles\DocumentProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -48,6 +48,18 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             DocumentModel doc= new DocumentModel();
             var docName = GetControlValue<TextBox>("txtDocName").Text;
             doc.Name = docName;
+
+            var comment = GetControlValue<TextBox>("txtComments").Text;
+            doc.Comments = comment;
+
+            var dateAdmission = GetControlValue<TextBox>("txtDateAdmission").Text;
+            doc.DateAdmission = ParseDateTime(dateAdmission);
+
+            var termExecution = GetControlValue<TextBox>("txtTermExecution").Text;
+            doc.TermExecution = ParseDateTime(termExecution);
+
+
+                
             return doc;
         }
 
@@ -62,13 +74,18 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             return control;
         }
 
+        public static DateTime ParseDateTime(string valueString)
+        {
+            return DateTime.Parse(valueString);
+        }
+
         public  void InsertCard()
         {
             try
             {
                 var doc = this.ReadDocument();
                 doc.Created = DateTime.Now;
-                doc.TermExecution = DateTime.Now;
+                
                 doc.ControlTermExecution = DateTime.Now;
                 doc.DateAdmission= DateTime.Now;
                 doc.SenderName = "";
