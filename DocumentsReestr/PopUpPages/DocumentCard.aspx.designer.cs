@@ -31,6 +31,33 @@ namespace DocumentsReestr.PopupButtons.PopUpPages {
         protected global::System.Web.UI.WebControls.FormView fvDocument;
         
         /// <summary>
+        /// idDocNameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idDocNameText;
+        
+        /// <summary>
+        /// idDocNameId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idDocNameId;
+        
+        /// <summary>
+        /// idTermExecution control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idTermExecution;
+        
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>

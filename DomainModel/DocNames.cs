@@ -8,7 +8,7 @@ namespace DomainModel
 {
     public class DocNameModel
     {
-        public string DocNameId { get; set; }
+        public int DocNameId { get; set; }
 
         public string Name { get; set; }
 

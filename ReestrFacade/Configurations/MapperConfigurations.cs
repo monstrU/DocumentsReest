@@ -10,8 +10,9 @@
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<DocumentProfile>();
                 x.AddProfile<DocNamesProfile>();
+                x.AddProfile<DocumentProfile>();
+                
             });
             Mapper.AssertConfigurationIsValid();
         }

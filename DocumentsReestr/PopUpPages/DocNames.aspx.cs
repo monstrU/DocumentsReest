@@ -32,5 +32,18 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             gvDocNames.DataSource = docNames;
             gvDocNames.DataBind();
         }
+
+        protected void gvDocNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string docNameId = gvDocNames.SelectedDataKey.Values[0].ToString();
+            Arguments.Add("docNameId", docNameId);
+
+            string docNameText = gvDocNames.SelectedDataKey.Values[1].ToString();
+            Arguments.Add("docNameText", docNameText);
+
+            string termExecutionDays = gvDocNames.SelectedDataKey.Values[2].ToString();
+            Arguments.Add("termExecution", termExecutionDays);
+            this.CloseDialog();
+        }
     }
 }

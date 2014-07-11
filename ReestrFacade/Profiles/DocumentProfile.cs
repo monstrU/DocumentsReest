@@ -6,6 +6,7 @@ using System.Text;
 namespace ReestrFacade.Profiles
 {
     using AutoMapper;
+    using AutoMapper.Mappers;
 
     using DomainModel;
 
@@ -21,9 +22,12 @@ namespace ReestrFacade.Profiles
 
         protected override void Configure()
         {
+            
+            this.CreateMap<DocName, DocNameModel>();
+
             this.CreateMap<Document, DocumentModel>()
                 .ForMember(d => d.DocSender, mo => mo.Ignore())
-                .ForMember(d => d.DocName, mo => mo.Ignore());
+                .ForMember(d => d.DocName, mo => mo.MapFrom(d => d.DocName));
 
             this.CreateMap<DocumentModel, Document>()
                 .ForMember(d => d.DocSenderId, mo => mo.Ignore())

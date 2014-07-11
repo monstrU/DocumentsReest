@@ -7,9 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace DocumentsReestr.PopupButtons.PopUpPages
 {
+    using System.Web.UI.HtmlControls;
+
     using DomainModel;
 
     using RCO.PopUpButton;
+    using RCO.PopUpButtons;
 
     using ReestrFacade;
 
@@ -47,7 +50,24 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             DocumentModel doc= new DocumentModel();
             var docName = GetControlValue<TextBox>("txtDocName").Text;
+            var idDocNameTextForm = idDocNameText.Value;
+            var idDocNameIdForm = idDocNameId.Value;
+            var idTermExecutionForm = idTermExecution.Value;
+
+            if (docName.Equals(idDocNameTextForm) && !string.IsNullOrEmpty(idDocNameId.ToString()))
+            {
+                doc.DocName = new DocNameModel()
+                              {
+                                  DocNameId = Convert.ToInt32(idDocNameIdForm),
+                                  Name = idDocNameTextForm,
+                                  TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
+                              };
+                
+            }
+            
+            
             doc.Name = docName;
+            
 
             var comment = GetControlValue<TextBox>("txtComments").Text;
             doc.Comments = comment;
@@ -105,6 +125,18 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             {
                 this.InsertCard();
             }
+        }
+
+        protected void pbtnDocName_OnAfterChildClose(object sender, PopUpItems e)
+        {
+            var docNameId = e.Items["docNameId"];
+            var docNameText = e.Items["docNameText"];
+            var termExecution = e.Items["termExecution"];
+            idDocNameId.Value = docNameId.ToString();
+            idDocNameText.Value = docNameText.ToString();
+            idTermExecution.Value = termExecution.ToString();
+            GetControlValue<TextBox>("txtDocName").Text = docNameText.ToString();
+            
         }
     }
 }

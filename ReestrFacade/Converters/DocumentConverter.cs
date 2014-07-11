@@ -17,6 +17,7 @@
         public DocumentConverter()
         {
             ConfigurationStore store = new ConfigurationStore(new TypeMapFactory(), MapperRegistry.Mappers);
+            //store.AddProfile<DocNamesProfile>();
             store.AddProfile<DocumentProfile>();
             Engine = new MappingEngine(store);
         }
