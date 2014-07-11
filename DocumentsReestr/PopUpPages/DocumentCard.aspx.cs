@@ -18,7 +18,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
     public partial class DocumentCard : PopUpPage
     {
-        public bool  IsAdd
+        public bool IsAdd
         {
             get
             {
@@ -53,7 +53,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                     this.LoadDocument(docId);
                 }
 
-            }   
+            }
         }
 
         private void LoadDocument(int documentId)
@@ -65,7 +65,13 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
         private DocumentModel ReadDocument()
         {
-            DocumentModel doc= new DocumentModel();
+            DocumentModel doc = new DocumentModel();
+
+            var documentIdString = GetControlValue<HtmlInputHidden>("idDocId").Value;
+            if (!string.IsNullOrEmpty(documentIdString))
+            {
+                doc.DocumentId = Convert.ToInt32(documentIdString);
+            }
             var docName = GetControlValue<TextBox>("txtDocName").Text;
             var idDocNameTextForm = idDocNameText.Value;
             var idDocNameIdForm = idDocNameId.Value;
@@ -87,7 +93,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             var senderName = GetControlValue<TextBox>("txtSenderName").Text;
             if (senderName.Equals(idSenderNameForm) && !string.IsNullOrEmpty(idSenderId.Value))
             {
-                doc.DocSender= new DocSenderModel()
+                doc.DocSender = new DocSenderModel()
                                {
                                    DocSenderId = Convert.ToInt32(idSenderIdForm),
                                    SenderName = senderName
@@ -95,7 +101,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             }
 
             doc.SenderName = senderName;
-            
+
 
             var comment = GetControlValue<TextBox>("txtComments").Text;
             doc.Comments = comment;
@@ -107,13 +113,13 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             doc.TermExecution = ParseDateTime(termExecution);
 
 
-                
+
             return doc;
         }
 
-        private T GetControlValue<T>(string controlId) where T:class
+        private T GetControlValue<T>(string controlId) where T : class
         {
-            
+
             var control = fvDocument.FindControl(controlId) as T;
             if (control == null)
             {
@@ -127,19 +133,32 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             return DateTime.Parse(valueString);
         }
 
-        public  void InsertCard()
+        public void InsertCard()
         {
             try
             {
                 var doc = this.ReadDocument();
                 doc.Created = DateTime.Now;
-                
+
                 doc.ControlTermExecution = DateTime.Now;
-                
-                
-                
+
+
+
                 DocumentFacade.SaveDocument(doc);
-                this.CloseDialog();
+
+            }
+            catch (Exception e)
+            {
+                lblError.Text = e.Message;
+            }
+
+        }
+
+        public void UpdateCard(DocumentModel document)
+        {
+            try
+            {
+                DocumentFacade.UpdateDocument(document);
             }
             catch (Exception e)
             {
@@ -153,6 +172,12 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             {
                 this.InsertCard();
             }
+            else
+            {
+                var doc = this.ReadDocument();
+                UpdateCard(doc);
+            }
+            this.CloseDialog();
         }
 
         protected void pbtnDocName_OnAfterChildClose(object sender, PopUpItems e)
@@ -164,7 +189,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idDocNameText.Value = docNameText.ToString();
             idTermExecution.Value = termExecution.ToString();
             GetControlValue<TextBox>("txtDocName").Text = docNameText.ToString();
-            
+
         }
 
         protected void pbtnFio_OnAfterChildClose(object sender, PopUpItems e)

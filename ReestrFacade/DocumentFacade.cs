@@ -46,5 +46,26 @@ namespace ReestrFacade
                 return converter.Convert(dbDoc);
             }
         }
+
+        public static void UpdateDocument(DocumentModel document)
+        {
+            using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
+            {
+
+                var dbDoc = context.Documents.SingleOrDefault(d => d.DocumentId == document.DocumentId);
+                var converter = new DocumentConverter();
+                var updateDoc = converter.Convert(document);
+
+                dbDoc.Name = updateDoc.Name;
+                dbDoc.Comments = updateDoc.Comments;
+                dbDoc.SenderName = updateDoc.SenderName;
+                dbDoc.DateAdmission = updateDoc.DateAdmission;
+                dbDoc.TermExecution = updateDoc.TermExecution;
+                //dbDoc.ControlTermExecution = updateDoc.ControlTermExecution;
+                
+                context.SubmitChanges();
+
+            }
+        }
     }
 }

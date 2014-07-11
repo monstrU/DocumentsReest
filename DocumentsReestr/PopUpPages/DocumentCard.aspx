@@ -102,6 +102,7 @@
                                 <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>"></asp:TextBox></td>
                         </tr>
                     </table>
+                    <input type="hidden" id="idDocId" clientidmode="Static" runat="server"  value="<%# Item.DocumentId %>"/>
                 </EditItemTemplate>
 
             </asp:FormView>
