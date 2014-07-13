@@ -70,6 +70,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 idDocNameId.Value = doc.DocName.DocNameId.ToString();
                 idDocNameText.Value = doc.DocName.Name;
             }
+            idTermExecution.Value = doc.TermExecutionDayCalulated.ToString();
 
             fvDocument.DataBind();
         }
@@ -78,11 +79,12 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             DocumentModel doc = new DocumentModel();
 
-            var documentIdString = GetControlValue<HtmlInputHidden>(fvDocument, "idDocId").Value;
-            if (!string.IsNullOrEmpty(documentIdString))
+            
+            if (!IsAdd)
             {
-                doc.DocumentId = Convert.ToInt32(documentIdString);
+                doc.DocumentId = docId;
             }
+
             var docName = GetControlValue<TextBox>(fvDocument, "txtDocName").Text;
             var idDocNameTextForm = idDocNameText.Value;
             var idDocNameIdForm = idDocNameId.Value;
@@ -97,7 +99,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                   TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
                               };
             }
-            
+            doc.Name = idDocNameTextForm;
 
             var idSenderIdForm = idSenderId.Value;
             var idSenderNameForm = idSenderName.Value;
@@ -136,8 +138,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
         public void InsertCard()
         {
-            try
-            {
+            
                 var doc = this.ReadDocument();
                 doc.Created = DateTime.Now;
 
@@ -147,38 +148,37 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
                 DocumentFacade.SaveDocument(doc);
 
-            }
-            catch (Exception e)
-            {
-                lblError.Text = e.Message;
-            }
+            
+            
 
         }
 
         public void UpdateCard(DocumentModel document)
         {
-            try
-            {
+            
                 DocumentFacade.UpdateDocument(document);
-            }
-            catch (Exception e)
-            {
-                lblError.Text = e.Message;
-            }
-
+            
+            
         }
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            if (IsAdd)
+            try
             {
-                this.InsertCard();
+                if (IsAdd)
+                {
+                    this.InsertCard();
+                }
+                else
+                {
+                    var doc = this.ReadDocument();
+                    UpdateCard(doc);
+                }
+                this.CloseDialog();
             }
-            else
+            catch (Exception exception)
             {
-                var doc = this.ReadDocument();
-                UpdateCard(doc);
+                lblError.Text = exception.Message;
             }
-            this.CloseDialog();
         }
 
         protected void pbtnDocName_OnAfterChildClose(object sender, PopUpItems e)

@@ -45,7 +45,7 @@ namespace ReestrModel
     #endregion
 		
 		public ReestrContextDataContext() : 
-				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionString, mappingSource)
+				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -607,7 +607,7 @@ namespace ReestrModel
 		
 		private int _DocSenderId;
 		
-		private int _DocNameId;
+		private System.Nullable<int> _DocNameId;
 		
 		private int _DocNumber;
 		
@@ -618,6 +618,8 @@ namespace ReestrModel
 		private string _Comments;
 		
 		private System.Nullable<System.DateTime> _ControlTermExecution;
+		
+		private string _Name;
 		
 		private EntityRef<aspnet_User> _aspnet_User;
 		
@@ -637,7 +639,7 @@ namespace ReestrModel
     partial void OnTermExecutionChanged();
     partial void OnDocSenderIdChanging(int value);
     partial void OnDocSenderIdChanged();
-    partial void OnDocNameIdChanging(int value);
+    partial void OnDocNameIdChanging(System.Nullable<int> value);
     partial void OnDocNameIdChanged();
     partial void OnDocNumberChanging(int value);
     partial void OnDocNumberChanged();
@@ -649,6 +651,8 @@ namespace ReestrModel
     partial void OnCommentsChanged();
     partial void OnControlTermExecutionChanging(System.Nullable<System.DateTime> value);
     partial void OnControlTermExecutionChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
     #endregion
 		
 		public Document()
@@ -743,8 +747,8 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int NOT NULL")]
-		public int DocNameId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int")]
+		public System.Nullable<int> DocNameId
 		{
 			get
 			{
@@ -871,6 +875,26 @@ namespace ReestrModel
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_Document", Storage="_aspnet_User", ThisKey="CreatorUserId", OtherKey="UserId", IsForeignKey=true)]
 		public aspnet_User aspnet_User
 		{
@@ -932,7 +956,7 @@ namespace ReestrModel
 					}
 					else
 					{
-						this._DocNameId = default(int);
+						this._DocNameId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DocName");
 				}

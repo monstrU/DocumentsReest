@@ -7,3 +7,4 @@ E:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.dll
 E:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.pdb
 E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.dll
 E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.pdb
+E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
