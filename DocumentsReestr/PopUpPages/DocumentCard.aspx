@@ -31,6 +31,12 @@
                 changeMonth: true,
                 changeYear: true
             });
+            
+            $(".doc_name").keyup(function () {
+                
+                $(".term_exec").prop("disabled", false);
+                $(".doc_name_hide").val('');
+            });
         });
 
     </script>
@@ -44,7 +50,7 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtDocName" runat="server" CssClass="doc_name"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
                         </tr>
                         <tr>
@@ -56,14 +62,14 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="datepicker"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
@@ -78,7 +84,7 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>'></asp:TextBox>
+                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>' CssClass="doc_name"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
                         </tr>
                         <tr>
@@ -90,14 +96,14 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="datepicker" Text="<%# Item.TermExecution %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec" Text="<%# Item.TermExecution %>"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
@@ -105,14 +111,14 @@
                                 <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>"></asp:TextBox></td>
                         </tr>
                     </table>
-                    <input type="hidden" id="idDocId" clientidmode="Static" runat="server"  value="<%# Item.DocumentId %>"/>
+                    
                     
                 </EditItemTemplate>
 
             </asp:FormView>
 
-            <input type="hidden" id="idDocNameText" clientidmode="Static" runat="server" />
-            <input type="hidden" id="idDocNameId" clientidmode="Static" runat="server" />
+            <input type="hidden" id="idDocNameText" class="doc_name_hide" clientidmode="Static" runat="server" />
+            <input type="hidden" id="idDocNameId" class="doc_name_hide" clientidmode="Static" runat="server" />
             <input type="hidden" id="idTermExecution" clientidmode="Static" runat="server" />
 
             <input type="hidden" id="idSenderId" clientidmode="Static" runat="server" />

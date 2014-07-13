@@ -69,11 +69,11 @@ namespace ReestrFacade
                 }
 
                 dbDoc.DateAdmission = updateDoc.DateAdmission;
-                dbDoc.TermExecution = updateDoc.TermExecution;
+                
 
                 if (!document.IsCreatedFromDictionary)
                 {
-                    dbDoc.ControlTermExecution = updateDoc.ControlTermExecution;
+                    dbDoc.TermExecution = updateDoc.TermExecution;
                 }
 
                 context.SubmitChanges();

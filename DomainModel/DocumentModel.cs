@@ -1,4 +1,6 @@
-﻿namespace DomainModel
+﻿using System.Net.NetworkInformation;
+
+namespace DomainModel
 {
     using System;
 
@@ -15,6 +17,15 @@
         /// </summary>
         public string Name { get; set; }
 
+        public string NameCalculated
+        {
+            get
+            {
+                string name;
+                name = IsCreatedFromDictionary ? DocName.Name : Name;
+                return name;
+            }
+        }
         /// <summary>
         /// дата приема
         /// </summary>
@@ -23,12 +34,9 @@
         /// <summary>
         /// срок исполнения
         /// </summary>
-        public DateTime TermExecution { get; set; }
+        public int TermExecution { get; set; }
 
-        /// <summary> 
-        /// контрольная дата исполнения
-        /// </summary>
-        public DateTime ControlTermExecution { get; set; }
+
 
 
 
@@ -39,48 +47,27 @@
 
         public Guid CreatorUserId { get; set; }
 
-        public int TermExecutionDayCalulated
-        {
-            get
-            {
-                int calc = 0;
-                if (IsCreatedFromDictionary)
-                {
-                    calc = DocName.TermExecutionDays;
-                }
-                else
-                {
-                    DateTime corrected ;
-                    if (DomainUtilities.IsSaturday(ControlTermExecution))
-                    {
-                        corrected = DomainUtilities.CorrectSaturday(ControlTermExecution);
-                    }
-                    else if (DomainUtilities.IsSunday(ControlTermExecution))
-                    {
-                        corrected = DomainUtilities.CorrectSunday(ControlTermExecution);
-                    }
-                    else
-                    {
-                        corrected = ControlTermExecution;
-                    }
-                    var dif= corrected - DateAdmission;
 
-                    calc = dif.Days;
-                }
-                return calc;
-            }
-
-
-        }
 
         /// <summary>
-        /// вычисленная дата 
+        /// вычисленная контрольная дата  исполнения
         /// </summary>
         public DateTime ControlTermExecutionCalculated
         {
             get
             {
-                return ControlTermExecution.AddDays(TermExecutionDayCalulated);
+
+                DateTime corrected = DateAdmission.AddDays(TermExecution);
+
+                if (DomainUtilities.IsSaturday(corrected))
+                {
+                    corrected = DomainUtilities.CorrectSaturday(corrected);
+                }
+                else if (DomainUtilities.IsSunday(corrected))
+                {
+                    corrected = DomainUtilities.CorrectSunday(corrected);
+                }
+                return corrected;
             }
         }
 
@@ -90,8 +77,8 @@
         }
         public DocumentModel()
         {
-            DocSender= new DocSenderModel();
-            
+            DocSender = new DocSenderModel();
+
         }
 
     }

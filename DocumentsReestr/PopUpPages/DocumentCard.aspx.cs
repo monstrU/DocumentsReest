@@ -70,7 +70,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 idDocNameId.Value = doc.DocName.DocNameId.ToString();
                 idDocNameText.Value = doc.DocName.Name;
             }
-            idTermExecution.Value = doc.TermExecutionDayCalulated.ToString();
+            idTermExecution.Value = doc.TermExecution.ToString();
 
             fvDocument.DataBind();
         }
@@ -93,13 +93,16 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             if (docName.Equals(idDocNameTextForm) && !string.IsNullOrEmpty(idDocNameId.ToString()))
             {
                 doc.DocName = new DocNameModel()
-                              {
-                                  DocNameId = Convert.ToInt32(idDocNameIdForm),
-                                  Name = idDocNameTextForm,
-                                  TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
-                              };
+                {
+                    DocNameId = Convert.ToInt32(idDocNameIdForm),
+                    Name = idDocNameTextForm,
+                    TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
+                };
             }
-            doc.Name = idDocNameTextForm;
+            else
+            {
+                doc.Name = docName;
+            }
 
             var idSenderIdForm = idSenderId.Value;
             var idSenderNameForm = idSenderName.Value;
@@ -123,7 +126,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             doc.DateAdmission = ParseDateTime(dateAdmission);
 
             var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
-            doc.TermExecution = ParseDateTime(termExecution);
+            doc.TermExecution = Convert.ToInt32(termExecution);
 
 
             
@@ -138,19 +141,9 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
         public void InsertCard()
         {
-            
                 var doc = this.ReadDocument();
                 doc.Created = DateTime.Now;
-
-                doc.ControlTermExecution = DateTime.Now;
-
-
-
                 DocumentFacade.SaveDocument(doc);
-
-            
-            
-
         }
 
         public void UpdateCard(DocumentModel document)
@@ -190,6 +183,10 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idDocNameText.Value = docNameText.ToString();
             idTermExecution.Value = termExecution.ToString();
             GetControlValue<TextBox>(fvDocument, "txtDocName").Text = docNameText.ToString();
+            var txtTermExecution =GetControlValue<TextBox>(fvDocument, "txtTermExecution");
+            txtTermExecution.Enabled = false;
+            txtTermExecution.Text = termExecution.ToString();
+
 
         }
 

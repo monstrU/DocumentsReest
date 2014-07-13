@@ -22,10 +22,10 @@
                                   </asp:PopUpButton></ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="DocNumber" HeaderText="номер документа" />
-                <asp:BoundField DataField="DocName.Name" HeaderText="название" />
+                <asp:BoundField DataField="NameCalculated" HeaderText="название" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="TermExecution" HeaderText="срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="ControlTermExecution" HeaderText="контрольный срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
+                <asp:BoundField DataField="TermExecution" HeaderText="срок исполнения"  />
+                <asp:BoundField DataField="ControlTermExecutionCalculated" HeaderText="контрольный срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
                 <asp:BoundField DataField="DocSender.SenderName" HeaderText="отправитель" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
                 <asp:BoundField DataField="Comments" HeaderText="комментарий" />
