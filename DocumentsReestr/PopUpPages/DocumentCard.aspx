@@ -7,7 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Карточка документа</title>
-
+    <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/jquery.ui.core.js"></script>
     <script src="/Scripts/jquery.ui.datepicker.js"></script>

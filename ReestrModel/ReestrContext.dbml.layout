@@ -26,21 +26,21 @@
         <elementListCompartment Id="b11352bc-b047-4205-903a-65de1d455ab6" absoluteBounds="8.14, 1.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 4.24600341796875); (8.125 : 4.24600341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 4.24600341796875); (8.125 : 4.24600341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReestrContextDataContext/aspnet_User/aspnet_User_Document" />
       <nodes>
         <classShapeMoniker Id="0b5d3dd4-20c4-4e53-b1f4-d0fec1ac67c5" />
         <classShapeMoniker Id="2c4e1472-48f7-4b96-b639-1ed2987c636c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 2.06814697265625); (10.125 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 2.06814697265625); (10.125 : 2.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReestrContextDataContext/DocName/DocName_Document" />
       <nodes>
         <classShapeMoniker Id="d5f0dd0a-c070-45fd-a3a1-76d507d5707c" />
         <classShapeMoniker Id="2c4e1472-48f7-4b96-b639-1ed2987c636c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 1.97199625651042); (8.125 : 1.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.5 : 1.97199625651042); (8.125 : 1.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ReestrContextDataContext/DocSender/DocSender_Document" />
       <nodes>
         <classShapeMoniker Id="380e481d-782f-49fd-88b0-e92bc30295fd" />

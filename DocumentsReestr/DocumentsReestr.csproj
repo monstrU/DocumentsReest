@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\index_col2_css.css" />
-    <Content Include="App_Themes\DefaultTheme\main_style.css" />
+    <Content Include="App_Themes\main_style.css" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\animated-overlay.gif" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -100,6 +100,46 @@
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="DefaultTheme\index_col2_css.css" />
+    <Content Include="DefaultTheme\main_style.css" />
+    <Content Include="DefaultTheme\themes\base\images\animated-overlay.gif" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\jquery-ui.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.all.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.base.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.core.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.theme.css" />
+    <Content Include="DefaultTheme\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
@@ -193,7 +233,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1881</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:16934/</IISUrl>
+          <IISUrl>http://localhost:1881/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

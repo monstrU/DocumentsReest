@@ -1,0 +1,206 @@
+﻿.container
+{
+    width: 100%; /* Ширина макета */
+    margin: 0 auto; /* Выравниваем по центру */
+}
+
+.nav, .right_menu
+{
+    width: 24ex;
+    padding: 5px;
+}
+
+
+.content
+{
+    margin: 0 0 0 0ex; /* Ширина колонок */
+    padding: 10px;
+    background-color: rgb(247, 246, 245);
+}
+
+
+
+
+.position_menu span.last_menu
+{
+    color: darkgrey;
+}
+
+.pager_box
+{
+    padding: 1ex;
+    text-align: right;
+}
+
+.pager_box .number_box
+{
+    float: right;
+    display: inline-block;
+    padding-left: 1ex;
+}
+
+    .pager_box .number_box div.page_number,
+    .pager_box .number_box div.skip_box
+    {
+        display: inline-block;
+        padding: 0 1ex;
+    }
+
+div.page_number
+{
+    background-color: rgb(189, 191, 199);
+    color: white;
+    cursor: pointer;
+    padding: 0 1ex;
+}
+
+div.selected
+{
+    background-color: rgb(153, 164, 223);
+    color: white;
+    padding: 0 1ex;
+}
+
+.pager_box span
+{
+    font-weight: 700;
+}
+
+.info_box
+{
+    border: 1px solid rgb(226, 216, 216);
+}
+
+    .info_box .top_strip a
+    {
+        padding: 0 1ex;
+    }
+
+    .info_box .info_title
+    {
+        background-color: rgb(229, 225, 225);
+        padding: 0 1ex;
+        overflow: hidden;
+    }
+
+        .info_box .info_title .double_line
+        {
+            float: left;
+            display: table-cell;
+            padding-right: 2ex;
+        }
+
+        .info_box .info_title .count_box
+        {
+            display: table-cell;
+            float: right;
+            width: 2ex;
+            padding-left: 1ex;
+            margin-top: 1ex;
+            margin-left: 1ex;
+            text-align: center;
+        }
+
+        .info_box .info_title .new_comment_box
+        {
+            float: right;
+            text-align: right;
+            display: table-cell;
+            
+        }
+                
+
+.common_text
+{
+    color: #969b9d;
+    font-size: 90%;
+    line-height: 1.3em;
+}
+
+.main_area
+{
+    overflow: hidden;
+    padding: 1ex;
+}
+
+
+    .main_area .text
+    {
+        display: table-cell;
+        margin-right: 30ex;
+        width: 100%;
+    }
+
+    .main_area .actions
+    {
+        padding: 0 1ex;
+        display: table-cell;
+    }
+
+        .main_area .actions div
+        {
+            white-space: nowrap;
+            margin-bottom: 0.5ex;
+        }
+
+.main_area_tools
+{
+    overflow: hidden;
+    padding: 1ex ;
+
+    width: auto;
+}
+
+.main_area_tools div:first-child
+{
+    position: relative;    
+    float: left;
+    
+}
+
+.main_area_tools div a
+{
+    padding-left: 25px;
+}
+
+.main_area_tools div a img
+{
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 17px;
+}
+
+
+    .main_area_tools .tags
+    {
+        float: right;
+        width: 60%;
+        text-align: right;
+    }
+
+        .main_area_tools .tags li
+        {
+            list-style: none;
+            display: inline-block;
+            color: #969b9d;
+            border-bottom: #969b9d 1px dotted;
+            line-height: 1em;
+            text-align: center;
+        }
+
+.action_button
+{
+    display: inline-block;
+    cursor: pointer;
+    color: #008BCE;
+    border-bottom: #008bce dotted 1px;
+    line-height: 1.2em;
+    padding: 0 0.2ex;
+}
+
+.action_button_selected
+{
+    border: rgb(203, 198, 198) 1px solid;
+    font-weight: 700;
+}

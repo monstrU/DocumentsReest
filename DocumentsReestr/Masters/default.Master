@@ -4,6 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="<%= ResolveUrl("~/DefaultTheme/main_style.css") %>"" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/index_col2_css.css") %>" rel="stylesheet" />
+
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

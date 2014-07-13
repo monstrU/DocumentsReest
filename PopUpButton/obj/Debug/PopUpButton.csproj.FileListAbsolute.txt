@@ -8,3 +8,8 @@ D:\Reestr\DocumentsReest\PopUpButton\bin\Debug\PopUpButton.pdb
 D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.csprojResolveAssemblyReference.cache
 D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.dll
 D:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.pdb
+E:\Reestr\DocumentsReest\PopUpButton\bin\Debug\PopUpButton.dll
+E:\Reestr\DocumentsReest\PopUpButton\bin\Debug\PopUpButton.pdb
+E:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.csprojResolveAssemblyReference.cache
+E:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.dll
+E:\Reestr\DocumentsReest\PopUpButton\obj\Debug\PopUpButton.pdb
