@@ -9,6 +9,11 @@ namespace DocumentsReestr.Masters
 {
     public partial class _default : System.Web.UI.MasterPage
     {
+        protected void Page_preInit(object sender, EventArgs e)
+        {
+            //Page.Theme = "DefaultTheme";
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

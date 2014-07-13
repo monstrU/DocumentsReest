@@ -6,7 +6,8 @@
 <head runat="server">
     <link href="<%= ResolveUrl("~/DefaultTheme/main_style.css") %>"" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/DefaultTheme/index_col2_css.css") %>" rel="stylesheet" />
-
+    <link href="/DefaultTheme/main.css" rel="stylesheet" />
+    <link href="/DefaultTheme/container.css" rel="stylesheet" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

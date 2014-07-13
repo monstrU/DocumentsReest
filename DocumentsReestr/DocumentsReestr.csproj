@@ -100,7 +100,9 @@
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="DefaultTheme\container.css" />
     <Content Include="DefaultTheme\index_col2_css.css" />
+    <Content Include="DefaultTheme\main.css" />
     <Content Include="DefaultTheme\main_style.css" />
     <Content Include="DefaultTheme\themes\base\images\animated-overlay.gif" />
     <Content Include="DefaultTheme\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -194,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masters\default.Master" />
+    <Content Include="DefaultTheme\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
