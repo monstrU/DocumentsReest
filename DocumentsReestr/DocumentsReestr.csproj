@@ -140,6 +140,7 @@
     <Content Include="DefaultTheme\themes\base\minified\jquery.ui.core.min.css" />
     <Content Include="DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
     <Content Include="DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="dic\doc_templates_dic.aspx" />
     <Content Include="Global.asax" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dic\doc_templates_dic.aspx.cs">
+      <DependentUpon>doc_templates_dic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dic\doc_templates_dic.aspx.designer.cs">
+      <DependentUpon>doc_templates_dic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

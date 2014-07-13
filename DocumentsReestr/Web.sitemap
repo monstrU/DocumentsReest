@@ -5,9 +5,9 @@
       <siteMapNode url="~/Default.aspx" title="Документы"  description="" />     
       
     </siteMapNode>
-    <siteMapNode url="" title="Справочники"  description="">
-      <siteMapNode url="~/dic/senders_dic.aspx" title="Отправители"  description="" />
+    <siteMapNode url="" title="Справочники"  description="">      
       <siteMapNode url="~/dic/doc_templates_dic.aspx" title="Шаблоны документов"  description="" />
+      <siteMapNode url="~/dic/senders_dic.aspx" title="Отправители"  description="" />
     </siteMapNode>
   </siteMapNode>
   
