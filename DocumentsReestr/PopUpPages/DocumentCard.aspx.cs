@@ -37,7 +37,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         protected void Page_Init(object sender, EventArgs e)
         {
             CancelButton = btnCancel;
-            fvDocument.ChangeMode(FormViewMode.Edit);
+            
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -78,12 +78,12 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             DocumentModel doc = new DocumentModel();
 
-            var documentIdString = GetControlValue<HtmlInputHidden>("idDocId").Value;
+            var documentIdString = GetControlValue<HtmlInputHidden>(fvDocument, "idDocId").Value;
             if (!string.IsNullOrEmpty(documentIdString))
             {
                 doc.DocumentId = Convert.ToInt32(documentIdString);
             }
-            var docName = GetControlValue<TextBox>("txtDocName").Text;
+            var docName = GetControlValue<TextBox>(fvDocument, "txtDocName").Text;
             var idDocNameTextForm = idDocNameText.Value;
             var idDocNameIdForm = idDocNameId.Value;
             var idTermExecutionForm = idTermExecution.Value;
@@ -101,7 +101,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
             var idSenderIdForm = idSenderId.Value;
             var idSenderNameForm = idSenderName.Value;
-            var senderName = GetControlValue<TextBox>("txtSenderName").Text;
+            var senderName = GetControlValue<TextBox>(fvDocument, "txtSenderName").Text;
             if (senderName.Equals(idSenderNameForm) && !string.IsNullOrEmpty(idSenderId.Value))
             {
                 doc.DocSender = new DocSenderModel()
@@ -111,33 +111,22 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                };
             }
 
-            
 
 
-            var comment = GetControlValue<TextBox>("txtComments").Text;
+
+            var comment = GetControlValue<TextBox>(fvDocument, "txtComments").Text;
             doc.Comments = comment;
 
-            var dateAdmission = GetControlValue<TextBox>("txtDateAdmission").Text;
+            var dateAdmission = GetControlValue<TextBox>(fvDocument, "txtDateAdmission").Text;
             doc.DateAdmission = ParseDateTime(dateAdmission);
 
-            var termExecution = GetControlValue<TextBox>("txtTermExecution").Text;
+            var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
             doc.TermExecution = ParseDateTime(termExecution);
 
 
             
 
             return doc;
-        }
-
-        private T GetControlValue<T>(string controlId) where T : class
-        {
-
-            var control = fvDocument.FindControl(controlId) as T;
-            if (control == null)
-            {
-                control = default(T);
-            }
-            return control;
         }
 
         public static DateTime ParseDateTime(string valueString)
@@ -200,7 +189,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idDocNameId.Value = docNameId.ToString();
             idDocNameText.Value = docNameText.ToString();
             idTermExecution.Value = termExecution.ToString();
-            GetControlValue<TextBox>("txtDocName").Text = docNameText.ToString();
+            GetControlValue<TextBox>(fvDocument, "txtDocName").Text = docNameText.ToString();
 
         }
 
@@ -210,7 +199,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             var senderNameId = e.Items["senderNameId"];
             idSenderId.Value = senderId.ToString();
             idSenderName.Value = senderNameId.ToString();
-            GetControlValue<TextBox>("txtSenderName").Text = senderNameId.ToString();
+            GetControlValue<TextBox>(fvDocument, "txtSenderName").Text = senderNameId.ToString();
         }
     }
 }

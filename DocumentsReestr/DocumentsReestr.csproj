@@ -144,6 +144,7 @@
     <Content Include="Global.asax" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
+    <Content Include="PopUpPages\doc_template_card.aspx" />
     <Content Include="PopUpPages\SenderName.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="PopUpPages\DocumentCard.aspx.designer.cs">
       <DependentUpon>DocumentCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpPages\doc_template_card.aspx.cs">
+      <DependentUpon>doc_template_card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpPages\doc_template_card.aspx.designer.cs">
+      <DependentUpon>doc_template_card.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopUpPages\SenderName.aspx.cs">
       <DependentUpon>SenderName.aspx</DependentUpon>

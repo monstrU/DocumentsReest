@@ -22,6 +22,8 @@ namespace ReestrFacade.Profiles
         protected override void Configure()
         {
             this.CreateMap<DocName, DocNameModel>();
+            this.CreateMap<DocNameModel, DocName>()
+                .ForMember(d=>d.Documents, opt=>opt.Ignore());
         }
     }
 }

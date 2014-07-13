@@ -588,5 +588,16 @@ namespace RCO.PopUpButton
 
 
         #endregion
+
+        protected T GetControlValue<T>(WebControl container, string controlId) where T : class
+        {
+
+            var control = container.FindControl(controlId) as T;
+            if (control == null)
+            {
+                control = default(T);
+            }
+            return control;
+        }
     }
 }
