@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Справочник типов документов</title>
-    <link href="<%= ResolveUrl("~/DefaultTheme/main_style.css") %>"" rel="stylesheet" />
-    <link href="<%= ResolveUrl("~/DefaultTheme/index_col2_css.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/main.css") %>"" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/container.css") %>" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -7,8 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Карточка документа</title>
-    <link href="<%= ResolveUrl("~/DefaultTheme/main_style.css") %>"" rel="stylesheet" />
-    <link href="<%= ResolveUrl("~/DefaultTheme/index_col2_css.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/main.css") %>"" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/container.css") %>" rel="stylesheet" />
     <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
     <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.10.2.js"></script>
