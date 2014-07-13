@@ -97,7 +97,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                   TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
                               };
             }
-            doc.Name = docName;
+            
 
             var idSenderIdForm = idSenderId.Value;
             var idSenderNameForm = idSenderName.Value;
@@ -111,7 +111,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                };
             }
 
-            doc.SenderName = senderName;
+            
 
 
             var comment = GetControlValue<TextBox>("txtComments").Text;

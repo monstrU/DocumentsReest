@@ -33,5 +33,15 @@ namespace ReestrModel.Properties {
                 return ((string)(this["ReestrStoreConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VVV-PC\\VVV;Initial Catalog=ReestrStore;Integrated Security=True")]
+        public string ReestrStoreConnectionString1 {
+            get {
+                return ((string)(this["ReestrStoreConnectionString1"]));
+            }
+        }
     }
 }

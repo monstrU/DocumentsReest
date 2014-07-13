@@ -56,9 +56,9 @@ namespace ReestrFacade
                 var converter = new DocumentConverter();
                 var updateDoc = converter.Convert(document);
 
-                dbDoc.Name = updateDoc.Name;
+                dbDoc.DocSender.DocSenderId = updateDoc.DocSender.DocSenderId;
                 dbDoc.Comments = updateDoc.Comments;
-                dbDoc.SenderName = updateDoc.SenderName;
+                dbDoc.DocSender.DocSenderId = updateDoc.DocSender.DocSenderId;
                 dbDoc.DateAdmission = updateDoc.DateAdmission;
                 dbDoc.TermExecution = updateDoc.TermExecution;
 

@@ -601,19 +601,15 @@ namespace ReestrModel
 		
 		private int _DocumentId;
 		
-		private string _Name;
-		
 		private System.Nullable<System.DateTime> _Created;
 		
 		private System.Nullable<System.DateTime> _TermExecution;
 		
-		private System.Nullable<int> _DocSenderId;
+		private int _DocSenderId;
 		
-		private System.Nullable<int> _DocNameId;
+		private int _DocNameId;
 		
 		private int _DocNumber;
-		
-		private string _SenderName;
 		
 		private System.DateTime _DateAdmission;
 		
@@ -635,20 +631,16 @@ namespace ReestrModel
     partial void OnCreated();
     partial void OnDocumentIdChanging(int value);
     partial void OnDocumentIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
     partial void OnCreatedChanging(System.Nullable<System.DateTime> value);
     partial void OnCreatedChanged();
     partial void OnTermExecutionChanging(System.Nullable<System.DateTime> value);
     partial void OnTermExecutionChanged();
-    partial void OnDocSenderIdChanging(System.Nullable<int> value);
+    partial void OnDocSenderIdChanging(int value);
     partial void OnDocSenderIdChanged();
-    partial void OnDocNameIdChanging(System.Nullable<int> value);
+    partial void OnDocNameIdChanging(int value);
     partial void OnDocNameIdChanged();
     partial void OnDocNumberChanging(int value);
     partial void OnDocNumberChanged();
-    partial void OnSenderNameChanging(string value);
-    partial void OnSenderNameChanged();
     partial void OnDateAdmissionChanging(System.DateTime value);
     partial void OnDateAdmissionChanged();
     partial void OnCreatorUserIdChanging(System.Guid value);
@@ -683,26 +675,6 @@ namespace ReestrModel
 					this._DocumentId = value;
 					this.SendPropertyChanged("DocumentId");
 					this.OnDocumentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
 				}
 			}
 		}
@@ -747,8 +719,8 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSenderId", DbType="Int")]
-		public System.Nullable<int> DocSenderId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocSenderId", DbType="Int NOT NULL")]
+		public int DocSenderId
 		{
 			get
 			{
@@ -771,8 +743,8 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int")]
-		public System.Nullable<int> DocNameId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNameId", DbType="Int NOT NULL")]
+		public int DocNameId
 		{
 			get
 			{
@@ -811,26 +783,6 @@ namespace ReestrModel
 					this._DocNumber = value;
 					this.SendPropertyChanged("DocNumber");
 					this.OnDocNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string SenderName
-		{
-			get
-			{
-				return this._SenderName;
-			}
-			set
-			{
-				if ((this._SenderName != value))
-				{
-					this.OnSenderNameChanging(value);
-					this.SendPropertyChanging();
-					this._SenderName = value;
-					this.SendPropertyChanged("SenderName");
-					this.OnSenderNameChanged();
 				}
 			}
 		}
@@ -980,7 +932,7 @@ namespace ReestrModel
 					}
 					else
 					{
-						this._DocNameId = default(Nullable<int>);
+						this._DocNameId = default(int);
 					}
 					this.SendPropertyChanged("DocName");
 				}
@@ -1014,7 +966,7 @@ namespace ReestrModel
 					}
 					else
 					{
-						this._DocSenderId = default(Nullable<int>);
+						this._DocSenderId = default(int);
 					}
 					this.SendPropertyChanged("DocSender");
 				}

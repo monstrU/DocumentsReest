@@ -78,7 +78,7 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.Name %>'></asp:TextBox>
+                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>'></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
                         </tr>
                         <tr>
@@ -90,7 +90,7 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.SenderName %>"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
                             </td>
                         </tr>
