@@ -29,12 +29,15 @@
 
             </div>
             <div>
-                <div class="menu"><a href="#№цц">Поиск</a> <a href="#№цц">Навигация</a> <a href="#№цц">Разбор</a> </div>
-                <asp:Menu ID="mnuMain" runat="server" DataSourceID="smmdsMain" Orientation="Horizontal" DynamicHorizontalOffset="2"  ></asp:Menu>
+                
+                <div class="menu">
+                <asp:Menu ID="mnuMain" runat="server" DataSourceID="smmdsMain" Orientation="Horizontal" DynamicHorizontalOffset="2" CssClass="menu" StaticEnableDefaultPopOutImage="False"  ></asp:Menu>
+                    </div>
                 <asp:SiteMapPath ID="smpMain" runat="server" Visible="false">
                 </asp:SiteMapPath>
                 <asp:SiteMapDataSource ID="smmdsMain" runat="server" ShowStartingNode="False"  />  
             </div>
+            <div class="menu" style="display: none"> <a href="#№цц">Поиск</a> <a href="#№цц">Навигация</a> <a href="#№цц">Разбор</a> </div>
             <div class="content">
                 
                 <div class="position_menu"><a href="../../../Makets/index.html">начало</a> <span>></span> <span class="last_menu">страница</span></div>
