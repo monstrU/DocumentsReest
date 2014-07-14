@@ -30,4 +30,3 @@ E:\Reestr\DocumentsReest\DocumentsReestr\bin\AutoMapper.xml
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.csprojResolveAssemblyReference.cache
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.dll
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.pdb
-E:\Reestr\DocumentsReest\DocumentsReestr\bin\AutoMapper.Net4.dll

@@ -102,6 +102,9 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             else
             {
                 doc.Name = docName;
+                
+                var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
+                doc.TermExecution = Convert.ToInt32(termExecution);
             }
 
             var idSenderIdForm = idSenderId.Value;
@@ -125,8 +128,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             var dateAdmission = GetControlValue<TextBox>(fvDocument, "txtDateAdmission").Text;
             doc.DateAdmission = ParseDateTime(dateAdmission);
 
-            var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
-            doc.TermExecution = Convert.ToInt32(termExecution);
+            
 
 
             

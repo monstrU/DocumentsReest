@@ -34,12 +34,17 @@ namespace DomainModel
         /// <summary>
         /// срок исполнения
         /// </summary>
-        public int TermExecution { get; set; }
+        public Nullable<int> TermExecution { get; set; }
 
-
-
-
-
+        public int TermExecutionCalculated
+        {
+            get
+            {
+                int exec = IsCreatedFromDictionary ? DocName.TermExecutionDays : TermExecution.GetValueOrDefault();
+                return exec;
+            }
+        } 
+        
         public DocSenderModel DocSender { get; set; }
         public DocNameModel DocName { get; set; }
 
@@ -57,7 +62,7 @@ namespace DomainModel
             get
             {
 
-                DateTime corrected = DateAdmission.AddDays(TermExecution);
+                DateTime corrected = DateAdmission.AddDays(TermExecutionCalculated);
 
                 if (DomainUtilities.IsSaturday(corrected))
                 {

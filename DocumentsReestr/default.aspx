@@ -24,7 +24,7 @@
                 <asp:BoundField DataField="DocNumber" HeaderText="номер документа" />
                 <asp:BoundField DataField="NameCalculated" HeaderText="название" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="TermExecution" HeaderText="срок исполнения"  />
+                <asp:BoundField DataField="TermExecutionCalculated" HeaderText="срок исполнения"  />
                 <asp:BoundField DataField="ControlTermExecutionCalculated" HeaderText="контрольный срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
                 <asp:BoundField DataField="DocSender.SenderName" HeaderText="отправитель" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
