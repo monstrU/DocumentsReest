@@ -17,7 +17,7 @@ namespace ReestrFacade
         {
             using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
             {
-                var db = context.Documents;
+                var db = context.Documents.OrderByDescending(d=>d.DateAdmission);
                 var converter = new DocumentConverter();
                 return db.Select(converter.Convert).ToList();
             }

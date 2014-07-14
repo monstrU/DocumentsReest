@@ -19,12 +19,12 @@ img
     border: 0;
 }
 
-body
-{
+body {
     font: .74em Arial, Helvetica, sans-serif;
     color: #444;
     background: #fdfbfb;
     line-height: 1.6em;
+    padding: 1ex;
 }
 
 .title_block
@@ -111,4 +111,9 @@ a.command_link
 {
     color: red;
     font-weight: 700;    
+}
+.error_validator 
+{
+    color: red;
+    font-weight: 700;            
 }

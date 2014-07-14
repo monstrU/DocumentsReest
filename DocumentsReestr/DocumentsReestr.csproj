@@ -147,6 +147,7 @@
     <Content Include="PopUpPages\doc_template_card.aspx" />
     <Content Include="PopUpPages\SenderName.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.filter_input.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.ui.core.js" />
     <Content Include="Scripts\jquery.ui.datepicker-ru.js" />

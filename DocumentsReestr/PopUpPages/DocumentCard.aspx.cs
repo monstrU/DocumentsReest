@@ -37,6 +37,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         protected void Page_Init(object sender, EventArgs e)
         {
             CancelButton = btnCancel;
+
+            
             
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -60,6 +62,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             var doc = DocumentFacade.LoadDocument(documentId);
             fvDocument.DataSource = new object[] { doc };
+            fvDocument.DataBind();
+
             if (doc.DocSender != null)
             {
                 idSenderId.Value = doc.DocSender.DocSenderId.ToString();
@@ -69,10 +73,13 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             {
                 idDocNameId.Value = doc.DocName.DocNameId.ToString();
                 idDocNameText.Value = doc.DocName.Name;
+                idTermExecution.Value = doc.DocName.TermExecutionDays.ToString();
+                
+                GetControlValue<TextBox>(fvDocument, "txtTermExecution").Enabled=false;
             }
-            idTermExecution.Value = doc.TermExecution.ToString();
+            
 
-            fvDocument.DataBind();
+            
         }
 
         private DocumentModel ReadDocument()

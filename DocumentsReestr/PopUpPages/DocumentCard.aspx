@@ -16,6 +16,7 @@
     <script src="/Scripts/jquery.ui.datepicker.js"></script>
     <script src="/Scripts/jquery.ui.datepicker-ru.js"></script>
     <script src="/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="/Scripts/jquery.filter_input.js"></script>
     <style type="text/css">
         .datepicker {
             width: 12ex;
@@ -37,6 +38,8 @@
                 $(".term_exec").prop("disabled", false);
                 $(".doc_name_hide").val('');
             });
+
+            $('.numeric_box').filter_input({ regex: '[0-9]' });
         });
 
     </script>
@@ -51,7 +54,10 @@
                             <td>название документа</td>
                             <td>
                                 <asp:TextBox ID="txtDocName" runat="server" CssClass="doc_name"></asp:TextBox>
-                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+
+                            </td>
                         </tr>
                         <tr>
                             <td>дата приема</td>
@@ -64,12 +70,15 @@
                             <td>
                                 <asp:TextBox ID="txtSenderName" runat="server" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator  "></asp:RequiredFieldValidator>
+                                </td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
@@ -85,7 +94,10 @@
                             <td>название документа</td>
                             <td>
                                 <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>' CssClass="doc_name"></asp:TextBox>
-                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                            </td>
                         </tr>
                         <tr>
                             <td>дата приема</td>
@@ -98,12 +110,15 @@
                             <td>
                                 <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec" Text="<%# Item.TermExecution %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box" Text="<%# Item.TermExecutionCalculated %>"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" CssClass="error_validator numeric_box" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
