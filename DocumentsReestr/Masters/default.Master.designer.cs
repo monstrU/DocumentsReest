@@ -49,15 +49,6 @@ namespace DocumentsReestr.Masters {
         protected global::System.Web.UI.WebControls.Menu mnuMain;
         
         /// <summary>
-        /// smpMain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapPath smpMain;
-        
-        /// <summary>
         /// smmdsMain control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace DocumentsReestr.Masters {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapDataSource smmdsMain;
+        
+        /// <summary>
+        /// smpMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapPath smpMain;
         
         /// <summary>
         /// phContent control.
