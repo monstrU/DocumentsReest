@@ -4,6 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    
+    <link href="/DefaultTheme/main.css" rel="stylesheet" />
+    <link href="/DefaultTheme/container.css" rel="stylesheet" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -26,11 +29,18 @@
 
             </div>
             <div>
-                <div class="menu"><a href="#№цц">Поиск</a> <a href="#№цц">Навигация</a> <a href="#№цц">Разбор</a> </div>
-            </div>
-            <div class="content">
                 
-                <div class="position_menu"><a href="../../../Makets/index.html">начало</a> <span>></span> <span class="last_menu">страница</span></div>
+                <div class="menu">
+                <asp:Menu ID="mnuMain" runat="server" DataSourceID="smmdsMain" Orientation="Horizontal" DynamicHorizontalOffset="2" CssClass="menu" StaticEnableDefaultPopOutImage="False"  ></asp:Menu>
+                    </div>
+                
+                <asp:SiteMapDataSource ID="smmdsMain" runat="server" ShowStartingNode="False"  />  
+            </div>
+            
+            <div class="content">
+                <asp:SiteMapPath ID="smpMain" runat="server"  >
+                </asp:SiteMapPath>
+                
                 <asp:ContentPlaceHolder ID="phContent" runat="server">
                 </asp:ContentPlaceHolder>
                 

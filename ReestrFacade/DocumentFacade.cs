@@ -17,7 +17,7 @@ namespace ReestrFacade
         {
             using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
             {
-                var db = context.Documents;
+                var db = context.Documents.OrderByDescending(d=>d.DateAdmission);
                 var converter = new DocumentConverter();
                 return db.Select(converter.Convert).ToList();
             }
@@ -28,9 +28,10 @@ namespace ReestrFacade
         {
             using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
             {
+                string userId = "5D8E89C3-3CE6-44FD-B3E0-D52D5E67E5DD";
+                document.CreatorUserId = new Guid(userId); 
                 var converter = new DocumentConverter();
                 var dbDocument = converter.Convert(document);
-                dbDocument.CreatorUserId = new Guid("5D8E89C3-3CE6-44FD-B3E0-D52D5E67E5DD");
                 context.Documents.InsertOnSubmit(dbDocument);
                 context.SubmitChanges();
             }
@@ -56,14 +57,25 @@ namespace ReestrFacade
                 var converter = new DocumentConverter();
                 var updateDoc = converter.Convert(document);
 
-                dbDoc.Name = updateDoc.Name;
+                dbDoc.DocSender.DocSenderId = updateDoc.DocSenderId;
                 dbDoc.Comments = updateDoc.Comments;
-                dbDoc.SenderName = updateDoc.SenderName;
-                dbDoc.DateAdmission = updateDoc.DateAdmission;
-                dbDoc.TermExecution = updateDoc.TermExecution;
+                if (updateDoc.DocSender != null)
+                {
+                    dbDoc.DocSender.DocSenderId = updateDoc.DocSender.DocSenderId;
+                }
+                else
+                {
+                    dbDoc.Name = updateDoc.Name;
+                }
 
-                //dbDoc.ControlTermExecution = updateDoc.ControlTermExecution;
+                dbDoc.DateAdmission = updateDoc.DateAdmission;
                 
+
+                if (!document.IsCreatedFromDictionary)
+                {
+                    dbDoc.TermExecution = updateDoc.TermExecution;
+                }
+
                 context.SubmitChanges();
 
             }

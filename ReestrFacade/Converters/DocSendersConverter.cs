@@ -29,7 +29,7 @@ namespace ReestrFacade.Converters
 
         public DocSender Convert(DocSenderModel obj)
         {
-            throw new NotImplementedException();
+            return Engine.Map<DocSenderModel, DocSender>(obj);
         }
 
         public DocSenderModel Convert(DocSender obj)

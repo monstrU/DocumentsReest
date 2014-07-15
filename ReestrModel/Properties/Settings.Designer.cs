@@ -26,8 +26,8 @@ namespace ReestrModel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vvv;Initial Catalog=ReestrStore;Integrated Security=SSPI;AttachDBFile" +
-            "name=|DataDirectory|\\ReestrStore.mdf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vvv-PC\\vvv;Initial Catalog=ReestrStore;Integrated Security=SSPI;Attac" +
+            "hDBFilename=|DataDirectory|\\ReestrStore.mdf")]
         public string ReestrStoreConnectionString {
             get {
                 return ((string)(this["ReestrStoreConnectionString"]));
@@ -37,7 +37,7 @@ namespace ReestrModel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VVV;Initial Catalog=ReestrStore;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VVV-PC\\VVV;Initial Catalog=ReestrStore;Integrated Security=True")]
         public string ReestrStoreConnectionString1 {
             get {
                 return ((string)(this["ReestrStoreConnectionString1"]));

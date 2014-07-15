@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\index_col2_css.css" />
-    <Content Include="App_Themes\DefaultTheme\main_style.css" />
+    <Content Include="App_Themes\main_style.css" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\animated-overlay.gif" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="App_Themes\DefaultTheme\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -100,16 +100,61 @@
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
     <Content Include="App_Themes\DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="DefaultTheme\container.css" />
+    <Content Include="DefaultTheme\main.css" />
+    <Content Include="DefaultTheme\themes\base\images\animated-overlay.gif" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\jquery-ui.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.all.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.base.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.core.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="DefaultTheme\themes\base\jquery.ui.theme.css" />
+    <Content Include="DefaultTheme\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="dic\doc_templates_dic.aspx" />
     <Content Include="Global.asax" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
+    <Content Include="PopUpPages\doc_template_card.aspx" />
     <Content Include="PopUpPages\SenderName.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.filter_input.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.ui.core.js" />
     <Content Include="Scripts\jquery.ui.datepicker-ru.js" />
     <Content Include="Scripts\jquery.ui.datepicker.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="default.aspx.cs">
@@ -118,6 +163,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dic\doc_templates_dic.aspx.cs">
+      <DependentUpon>doc_templates_dic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dic\doc_templates_dic.aspx.designer.cs">
+      <DependentUpon>doc_templates_dic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,6 +195,13 @@
     <Compile Include="PopUpPages\DocumentCard.aspx.designer.cs">
       <DependentUpon>DocumentCard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PopUpPages\doc_template_card.aspx.cs">
+      <DependentUpon>doc_template_card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpPages\doc_template_card.aspx.designer.cs">
+      <DependentUpon>doc_template_card.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PopUpPages\SenderName.aspx.cs">
       <DependentUpon>SenderName.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,12 +213,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masters\default.Master" />
+    <Content Include="DefaultTheme\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -193,7 +254,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1881</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:16934/</IISUrl>
+          <IISUrl>http://localhost:1881/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

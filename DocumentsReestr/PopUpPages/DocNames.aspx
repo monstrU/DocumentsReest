@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Справочник типов документов</title>
+    <link href="/DefaultTheme/main.css" rel="stylesheet" />
+    <link href="/DefaultTheme/container.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

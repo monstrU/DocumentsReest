@@ -29,7 +29,7 @@ namespace ReestrFacade.Converters
 
         public DocName Convert(DocNameModel obj)
         {
-            throw new NotImplementedException();
+            return Engine.Map<DocNameModel,DocName>(obj);
         }
 
         public DocNameModel Convert(DocName obj)

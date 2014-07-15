@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="phContent" runat="server">
     <div class="info_box">
-        <asp:PopUpButton runat="server" ID="pbtnAdd" Text="добавить" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px">
+        <asp:PopUpButton runat="server" ID="pbtnAdd" Text="добавить" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="True">
             <PostParams>
                 <asp:paramItem Key="add" KeyValue="1" />
             </PostParams>
@@ -22,12 +22,12 @@
                                   </asp:PopUpButton></ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="DocNumber" HeaderText="номер документа" />
-                <asp:BoundField DataField="Name" HeaderText="название" />
+                <asp:BoundField DataField="NameCalculated" HeaderText="название" />
                 <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="TermExecution" HeaderText="срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="ControlTermExecution" HeaderText="контрольный срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
-                <asp:BoundField DataField="SenderName" HeaderText="отправитель" />
-                <asp:BoundField DataField="DateAdmission" HeaderText="дата приема" DataFormatString="{0:dd.MM.yyyy}" />
+                <asp:BoundField DataField="TermExecutionCalculated" HeaderText="срок исполнения"  />
+                <asp:BoundField DataField="ControlTermExecutionCalculated" HeaderText="контрольный срок исполнения" DataFormatString="{0:dd.MM.yyyy}" />
+                <asp:BoundField DataField="DocSender.SenderName" HeaderText="отправитель" />
+                
                 <asp:BoundField DataField="Comments" HeaderText="комментарий" />
             </Columns>
         </asp:GridView>

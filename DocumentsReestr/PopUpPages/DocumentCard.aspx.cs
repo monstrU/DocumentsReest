@@ -37,7 +37,9 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         protected void Page_Init(object sender, EventArgs e)
         {
             CancelButton = btnCancel;
-            fvDocument.ChangeMode(FormViewMode.Edit);
+
+            
+            
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,6 +62,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             var doc = DocumentFacade.LoadDocument(documentId);
             fvDocument.DataSource = new object[] { doc };
+            fvDocument.DataBind();
+
             if (doc.DocSender != null)
             {
                 idSenderId.Value = doc.DocSender.DocSenderId.ToString();
@@ -69,21 +73,26 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             {
                 idDocNameId.Value = doc.DocName.DocNameId.ToString();
                 idDocNameText.Value = doc.DocName.Name;
+                idTermExecution.Value = doc.DocName.TermExecutionDays.ToString();
+                
+                GetControlValue<TextBox>(fvDocument, "txtTermExecution").Enabled=false;
             }
+            
 
-            fvDocument.DataBind();
+            
         }
 
         private DocumentModel ReadDocument()
         {
             DocumentModel doc = new DocumentModel();
 
-            var documentIdString = GetControlValue<HtmlInputHidden>("idDocId").Value;
-            if (!string.IsNullOrEmpty(documentIdString))
+            
+            if (!IsAdd)
             {
-                doc.DocumentId = Convert.ToInt32(documentIdString);
+                doc.DocumentId = docId;
             }
-            var docName = GetControlValue<TextBox>("txtDocName").Text;
+
+            var docName = GetControlValue<TextBox>(fvDocument, "txtDocName").Text;
             var idDocNameTextForm = idDocNameText.Value;
             var idDocNameIdForm = idDocNameId.Value;
             var idTermExecutionForm = idTermExecution.Value;
@@ -91,17 +100,23 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             if (docName.Equals(idDocNameTextForm) && !string.IsNullOrEmpty(idDocNameId.ToString()))
             {
                 doc.DocName = new DocNameModel()
-                              {
-                                  DocNameId = Convert.ToInt32(idDocNameIdForm),
-                                  Name = idDocNameTextForm,
-                                  TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
-                              };
+                {
+                    DocNameId = Convert.ToInt32(idDocNameIdForm),
+                    Name = idDocNameTextForm,
+                    TermExecutionDays = Convert.ToInt32(idTermExecutionForm)
+                };
             }
-            doc.Name = docName;
+            else
+            {
+                doc.Name = docName;
+                
+                var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
+                doc.TermExecution = Convert.ToInt32(termExecution);
+            }
 
             var idSenderIdForm = idSenderId.Value;
             var idSenderNameForm = idSenderName.Value;
-            var senderName = GetControlValue<TextBox>("txtSenderName").Text;
+            var senderName = GetControlValue<TextBox>(fvDocument, "txtSenderName").Text;
             if (senderName.Equals(idSenderNameForm) && !string.IsNullOrEmpty(idSenderId.Value))
             {
                 doc.DocSender = new DocSenderModel()
@@ -111,33 +126,21 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                                };
             }
 
-            doc.SenderName = senderName;
 
 
-            var comment = GetControlValue<TextBox>("txtComments").Text;
+
+            var comment = GetControlValue<TextBox>(fvDocument, "txtComments").Text;
             doc.Comments = comment;
 
-            var dateAdmission = GetControlValue<TextBox>("txtDateAdmission").Text;
+            var dateAdmission = GetControlValue<TextBox>(fvDocument, "txtDateAdmission").Text;
             doc.DateAdmission = ParseDateTime(dateAdmission);
 
-            var termExecution = GetControlValue<TextBox>("txtTermExecution").Text;
-            doc.TermExecution = ParseDateTime(termExecution);
+            
 
 
             
 
             return doc;
-        }
-
-        private T GetControlValue<T>(string controlId) where T : class
-        {
-
-            var control = fvDocument.FindControl(controlId) as T;
-            if (control == null)
-            {
-                control = default(T);
-            }
-            return control;
         }
 
         public static DateTime ParseDateTime(string valueString)
@@ -147,49 +150,37 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
 
         public void InsertCard()
         {
-            try
-            {
                 var doc = this.ReadDocument();
                 doc.Created = DateTime.Now;
-
-                doc.ControlTermExecution = DateTime.Now;
-
-
-
                 DocumentFacade.SaveDocument(doc);
-
-            }
-            catch (Exception e)
-            {
-                lblError.Text = e.Message;
-            }
-
         }
 
         public void UpdateCard(DocumentModel document)
         {
-            try
-            {
+            
                 DocumentFacade.UpdateDocument(document);
-            }
-            catch (Exception e)
-            {
-                lblError.Text = e.Message;
-            }
-
+            
+            
         }
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            if (IsAdd)
+            try
             {
-                this.InsertCard();
+                if (IsAdd)
+                {
+                    this.InsertCard();
+                }
+                else
+                {
+                    var doc = this.ReadDocument();
+                    UpdateCard(doc);
+                }
+                this.CloseDialog();
             }
-            else
+            catch (Exception exception)
             {
-                var doc = this.ReadDocument();
-                UpdateCard(doc);
+                lblError.Text = exception.Message;
             }
-            this.CloseDialog();
         }
 
         protected void pbtnDocName_OnAfterChildClose(object sender, PopUpItems e)
@@ -200,7 +191,11 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idDocNameId.Value = docNameId.ToString();
             idDocNameText.Value = docNameText.ToString();
             idTermExecution.Value = termExecution.ToString();
-            GetControlValue<TextBox>("txtDocName").Text = docNameText.ToString();
+            GetControlValue<TextBox>(fvDocument, "txtDocName").Text = docNameText.ToString();
+            var txtTermExecution =GetControlValue<TextBox>(fvDocument, "txtTermExecution");
+            txtTermExecution.Enabled = false;
+            txtTermExecution.Text = termExecution.ToString();
+
 
         }
 
@@ -210,7 +205,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             var senderNameId = e.Items["senderNameId"];
             idSenderId.Value = senderId.ToString();
             idSenderName.Value = senderNameId.ToString();
-            GetControlValue<TextBox>("txtSenderName").Text = senderNameId.ToString();
+            GetControlValue<TextBox>(fvDocument, "txtSenderName").Text = senderNameId.ToString();
         }
     }
 }

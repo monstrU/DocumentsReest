@@ -7,12 +7,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Карточка документа</title>
-
+    <link href="<%= ResolveUrl("~/DefaultTheme/main.css") %>"" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/container.css") %>" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/jquery.ui.core.js"></script>
     <script src="/Scripts/jquery.ui.datepicker.js"></script>
     <script src="/Scripts/jquery.ui.datepicker-ru.js"></script>
     <script src="/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="/Scripts/jquery.filter_input.js"></script>
     <style type="text/css">
         .datepicker {
             width: 12ex;
@@ -28,6 +32,14 @@
                 changeMonth: true,
                 changeYear: true
             });
+            
+            $(".doc_name").keyup(function () {
+                
+                $(".term_exec").prop("disabled", false);
+                $(".doc_name_hide").val('');
+            });
+
+            $('.numeric_box').filter_input({ regex: '[0-9]' });
         });
 
     </script>
@@ -41,8 +53,11 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server"></asp:TextBox>
-                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                                <asp:TextBox ID="txtDocName" runat="server" CssClass="doc_name"></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+
+                            </td>
                         </tr>
                         <tr>
                             <td>дата приема</td>
@@ -53,14 +68,17 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="datepicker"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator  "></asp:RequiredFieldValidator>
+                                </td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
@@ -75,8 +93,11 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.Name %>'></asp:TextBox>
-                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton></td>
+                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>' CssClass="doc_name"></asp:TextBox>
+                                <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                            </td>
                         </tr>
                         <tr>
                             <td>дата приема</td>
@@ -87,14 +108,17 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.SenderName %>"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>" Enabled="false"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
+                                <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>срок исполнения</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="datepicker" Text="<%# Item.TermExecution %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box" Text="<%# Item.TermExecutionCalculated %>"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" CssClass="error_validator numeric_box" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
                         </tr>
                         <tr>
                             <td>комментарии</td>
@@ -102,14 +126,14 @@
                                 <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>"></asp:TextBox></td>
                         </tr>
                     </table>
-                    <input type="hidden" id="idDocId" clientidmode="Static" runat="server"  value="<%# Item.DocumentId %>"/>
+                    
                     
                 </EditItemTemplate>
 
             </asp:FormView>
 
-            <input type="hidden" id="idDocNameText" clientidmode="Static" runat="server" />
-            <input type="hidden" id="idDocNameId" clientidmode="Static" runat="server" />
+            <input type="hidden" id="idDocNameText" class="doc_name_hide" clientidmode="Static" runat="server" />
+            <input type="hidden" id="idDocNameId" class="doc_name_hide" clientidmode="Static" runat="server" />
             <input type="hidden" id="idTermExecution" clientidmode="Static" runat="server" />
 
             <input type="hidden" id="idSenderId" clientidmode="Static" runat="server" />
