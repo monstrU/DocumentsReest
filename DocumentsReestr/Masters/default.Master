@@ -16,12 +16,10 @@
         <div class="container">
             <div class="header">
                 <div class="title_block ">
-                    <img src="../../../Makets/Images/megafon_logo.png" alt="Логотип" /><h2>Реестр входящих документов</h2>
+                    
                 </div>
                 <div class="settings_block">
-                    <a href="#aa" class="user_link">Васильев Алексей</a>
-                    <img style="" src="../../../Makets/Images/settings.gif" alt="Настройки пользователя" />
-
+                    <asp:LoginName ID="LoginName1" runat="server" />
                 </div>
                 <asp:ContentPlaceHolder ID="phTop" runat="server">
                 </asp:ContentPlaceHolder>
