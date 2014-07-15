@@ -18,7 +18,7 @@
         <asp:GridView ID="gvDocuments" runat="server" ItemType="DomainModel.DocumentModel" AutoGenerateColumns="False" DataKeyNames="DocumentId" OnRowDataBound="gvDocuments_RowDataBound" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
             <Columns>
                 <asp:TemplateField >
-                    <ItemTemplate><asp:PopUpButton ID="pbtnEditDoc" runat="server" Text="ред" ControlShowType="HyperLink" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px">
+                    <ItemTemplate><asp:PopUpButton ID="pbtnEditDoc" runat="server" Text="ред" ControlShowType="HyperLink" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="true">
                                   </asp:PopUpButton></ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="DocNumber" HeaderText="номер документа" />

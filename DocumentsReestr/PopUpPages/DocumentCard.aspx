@@ -47,16 +47,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:FormView ID="fvDocument" runat="server" ItemType="DomainModel.DocumentModel" CellPadding="4" ForeColor="#333333">
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <asp:FormView ID="fvDocument" runat="server" ItemType="DomainModel.DocumentModel" CellPadding="3" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" GridLines="Both">
+                <EditRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                <FooterStyle BackColor="White" ForeColor="#000066" />
+                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                 <InsertItemTemplate>
-                    <table>
+                    <table class="card_table">
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server" CssClass="doc_name"></asp:TextBox>
+                                <asp:TextBox ID="txtDocName" runat="server" CssClass="textbox doc_name"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
                                 <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
 
@@ -71,7 +71,7 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server" Enabled="false"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Enabled="false" CssClass="textbox"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
                                 <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
                             </td>
@@ -86,17 +86,17 @@
                         <tr>
                             <td>комментарии</td>
                             <td>
-                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox></td>
+                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" CssClass="textbox"></asp:TextBox></td>
                         </tr>
 
                     </table>
                 </InsertItemTemplate>
                 <EditItemTemplate>
-                    <table>
+                    <table class="card_table">
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.DocName.Name%>' CssClass="doc_name"></asp:TextBox>
+                                <asp:TextBox ID="txtDocName" runat="server" Text='<%# Item.NameCalculated%>' CssClass="doc_name textbox"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnDocName" Url="~/PopUpPages/DocNames.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnDocName_OnAfterChildClose"></asp:PopUpButton>
                                 <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtDocName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -111,7 +111,7 @@
                         <tr>
                             <td>ФИО отправителя</td>
                             <td>
-                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>" Enabled="false"></asp:TextBox>
+                                <asp:TextBox ID="txtSenderName" runat="server" Text="<%# Item.DocSender.SenderName %>" Enabled="false" CssClass="textbox"></asp:TextBox>
                                 <asp:PopUpButton runat="server" ID="pbtnFio" Url="~/PopUpPages/SenderName.aspx" windowWidth="600px" windowHeight="500px" Text="..." IsResizable="True" PostBack="True" OnAfterChildClose="pbtnFio_OnAfterChildClose"></asp:PopUpButton>
                                 <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
                             </td>
@@ -126,15 +126,15 @@
                         <tr>
                             <td>комментарии</td>
                             <td>
-                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Text="<%# Item.Comments %>" CssClass="textbox"></asp:TextBox></td>
                         </tr>
                     </table>
                     
                     
                 </EditItemTemplate>
 
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                <RowStyle ForeColor="#000066" />
 
             </asp:FormView>
 

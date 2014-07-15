@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ReestrStore" Class="ReestrContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=VVV;Initial Catalog=ReestrStore;Integrated Security=True" SettingsObjectName="ReestrModel.Properties.Settings" SettingsPropertyName="ReestrStoreConnectionStringWork" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=vvv-pc\vvv;AttachDbFilename=|DataDirectory|\ReestrStore.mdf;Initial Catalog=ReestrStore;Integrated Security=True" SettingsObjectName="ReestrModel.Properties.Settings" SettingsPropertyName="ReestrStoreConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DocSenders" Member="DocSenders">
     <Type Name="DocSender">
       <Column Name="DocSenderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
