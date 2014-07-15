@@ -747,7 +747,7 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int DocNumber
 		{
 			get

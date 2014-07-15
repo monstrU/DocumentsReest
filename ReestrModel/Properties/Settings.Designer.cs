@@ -47,8 +47,8 @@ namespace ReestrModel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vvv-pc\\vvv;Initial Catalog=ReestrStore;Integrated Security=SSPI;Attac" +
-            "hDBFilename=|DataDirectory|\\ReestrStore.mdf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vvv-pc\\vvv2012;Initial Catalog=ReestrStore;Integrated Security=SSPI;A" +
+            "ttachDBFilename=|DataDirectory|\\ReestrStore.mdf")]
         public string ReestrStoreConnectionString {
             get {
                 return ((string)(this["ReestrStoreConnectionString"]));
