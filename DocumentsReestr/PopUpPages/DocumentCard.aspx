@@ -47,7 +47,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:FormView ID="fvDocument" runat="server" RenderOuterTable="False" ItemType="DomainModel.DocumentModel">
+            <asp:FormView ID="fvDocument" runat="server" ItemType="DomainModel.DocumentModel" CellPadding="4" ForeColor="#333333">
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <InsertItemTemplate>
                     <table>
                         <tr>
@@ -129,6 +132,9 @@
                     
                     
                 </EditItemTemplate>
+
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
 
             </asp:FormView>
 

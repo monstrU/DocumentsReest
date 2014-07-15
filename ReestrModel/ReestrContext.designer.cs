@@ -45,7 +45,7 @@ namespace ReestrModel
     #endregion
 		
 		public ReestrContextDataContext() : 
-				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionString1, mappingSource)
+				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionStringWork, mappingSource)
 		{
 			OnCreated();
 		}

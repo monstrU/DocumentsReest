@@ -15,14 +15,14 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="header">
-                <div class="title_block ">
-                    <img src="../../../Makets/Images/megafon_logo.png" alt="Логотип" /><h2>Реестр входящих документов</h2>
-                </div>
-                <div class="settings_block">
-                    <a href="#aa" class="user_link">Васильев Алексей</a>
-                    <img style="" src="../../../Makets/Images/settings.gif" alt="Настройки пользователя" />
+                            <div class="title_block ">
+                <h2>Реестр документов</h2>
+            </div>
+            <div class="settings_block">
+                <asp:LoginName ID="lnBox" runat="server" CssClass="user_link" />
+                
 
-                </div>
+            </div>
                 <asp:ContentPlaceHolder ID="phTop" runat="server">
                 </asp:ContentPlaceHolder>
                 
