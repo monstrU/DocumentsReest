@@ -35,7 +35,7 @@ namespace DocumentsReestr
         protected void pbtnAdd_AfterChildClose(object sender, RCO.PopUpButtons.PopUpItems e)
         {
             gvDocuments.PageIndex = 0;
-            this.LoadDocuments();
+            SearchDocuments();
         }
 
         protected void gvDocuments_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
@@ -61,33 +61,39 @@ namespace DocumentsReestr
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            this.SearchDocuments();
+        }
+
+        private void SearchDocuments()
+        {
             try
             {
                 Nullable<DateTime> from = null;
                 Nullable<DateTime> to = null;
-                if (!string.IsNullOrEmpty(txtFromDateAdmission.Text))
+                if (!string.IsNullOrEmpty(this.txtFromDateAdmission.Text))
                 {
-                    from = ParserUtils.ParseDateTime(txtFromDateAdmission.Text);
+                    @from = ParserUtils.ParseDateTime(this.txtFromDateAdmission.Text);
                 }
 
-                if (!string.IsNullOrEmpty(txtToDateAdmission.Text))
+                if (!string.IsNullOrEmpty(this.txtToDateAdmission.Text))
                 {
-                    to = ParserUtils.ParseDateTime(txtToDateAdmission.Text);
+                    to = ParserUtils.ParseDateTime(this.txtToDateAdmission.Text);
                 }
 
-                var docs = DocumentFacade.SearchDocuments(from
-                                        , to
-                                        , idSender.Value
-                                        , idDocName.Value
-                                        , cbTodayExecute.Checked
-                                        , cbExpired.Checked);
+                var docs = DocumentFacade.SearchDocuments(
+                    @from,
+                    to,
+                    this.idSender.Value,
+                    this.idDocName.Value,
+                    this.cbTodayExecute.Checked,
+                    this.cbExpired.Checked);
 
-                gvDocuments.DataSource = docs;
-                gvDocuments.DataBind();
+                this.gvDocuments.DataSource = docs;
+                this.gvDocuments.DataBind();
             }
             catch (Exception ex)
             {
-                lblError.Text = ex.Message;
+                this.lblError.Text = ex.Message;
             }
         }
     }

@@ -17,9 +17,10 @@
                     <asp:TextBox ID="txtToDateAdmission" runat="server" CssClass="datepicker"></asp:TextBox></td>
             </tr>
             <tr>
-                <td colspan="2">
-                   отпр <input type="text" placeholder="отправитель" id="idSender" runat="server" />
-                   назв <input type="text" placeholder="название документа" id="idDocName" runat="server" />
+                <td colspan="2">отпр
+                    <input type="text" placeholder="отправитель" id="idSender" runat="server" />
+                    назв
+                    <input type="text" placeholder="название документа" id="idDocName" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -28,13 +29,23 @@
                 <td>
                     <asp:CheckBox ID="cbExpired" runat="server" Text="просрочено" /></td>
             </tr>
-            <tr><td colspan="2">
-                <asp:Button ID="btnSearch" runat="server" Text="поиск" OnClick="btnSearch_Click" />  &nbsp;<asp:Label ID="lblError" runat="server" Text="" EnableViewState="False" CssClass="error_box"></asp:Label></td></tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Button ID="btnSearch" runat="server" Text="поиск" OnClick="btnSearch_Click" />
+                    &nbsp;<asp:Label ID="lblError" runat="server" Text="" EnableViewState="False" CssClass="error_box"></asp:Label></td>
+            </tr>
         </table>
 
         <asp:GridView ID="gvDocuments" runat="server" ItemType="DomainModel.DocumentModel" AutoGenerateColumns="False" DataKeyNames="DocumentId" OnRowDataBound="gvDocuments_RowDataBound" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
             <Columns>
                 <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:PopUpButton runat="server" ID="pbtnAdd" CssClass="header_command" Text="новый" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="True" ControlShowType="HyperLink">
+                            <PostParams>
+                                <asp:paramItem Key="add" KeyValue="1" />
+                            </PostParams>
+                        </asp:PopUpButton>
+                    </HeaderTemplate>
                     <ItemTemplate>
                         <asp:PopUpButton ID="pbtnEditDoc" runat="server" Text="ред" ControlShowType="HyperLink" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="true">
                         </asp:PopUpButton>
@@ -49,6 +60,13 @@
 
                 <asp:BoundField DataField="Comments" HeaderText="комментарий" />
             </Columns>
+            <EmptyDataTemplate>
+                [<asp:PopUpButton runat="server" ID="pbtnAdd" Text="новый" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="True" ControlShowType="HyperLink">
+                    <PostParams>
+                        <asp:paramItem Key="add" KeyValue="1" />
+                    </PostParams>
+                </asp:PopUpButton>]
+            </EmptyDataTemplate>
             <FooterStyle BackColor="White" ForeColor="#333333" />
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
@@ -60,28 +78,24 @@
             <SortedDescendingHeaderStyle BackColor="#275353" />
         </asp:GridView>
 
-        <asp:PopUpButton runat="server" ID="pbtnAdd" Text="добавить" Url="~/PopUpPages/DocumentCard.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAdd_AfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" IsResizable="True">
-            <PostParams>
-                <asp:paramItem Key="add" KeyValue="1" />
-            </PostParams>
-        </asp:PopUpButton>
+
 
 
 
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="phBottom" runat="server">
-     <script type="text/javascript">
-         $(document).ready(function () {
-             $.datepicker.setDefaults($.datepicker.regional["ru"]);
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.datepicker.setDefaults($.datepicker.regional["ru"]);
 
-             $(".datepicker").mask("99.99.9999");
-             $(".datepicker").datepicker(
-             {
-                 changeMonth: true,
-                 changeYear: true
-             });
-         });
+            $(".datepicker").mask("99.99.9999");
+            $(".datepicker").datepicker(
+            {
+                changeMonth: true,
+                changeYear: true
+            });
+        });
 
     </script>
 </asp:Content>

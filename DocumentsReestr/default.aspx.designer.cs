@@ -92,14 +92,5 @@ namespace DocumentsReestr {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvDocuments;
-        
-        /// <summary>
-        /// pbtnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::RCO.PopUpButtons.PopUpButton pbtnAdd;
     }
 }
