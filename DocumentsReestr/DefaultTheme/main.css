@@ -1,6 +1,4 @@
-﻿
-
-:focus, :active
+﻿:focus, :active
 {
     outline: 0;
 }
@@ -128,6 +126,24 @@ a.command_link
 }
 .error_validator 
 {
-    color: red;
+    color: white;
     font-weight: 700;            
+}
+table.card_table 
+{
+    width: 70ex;    
+}
+table.card_table  td:first-child
+{
+    width: 20ex;
+    text-align: right;
+    font-weight: 700;
+}
+table.card_table  td 
+{
+    width: 40ex;    
+}
+table.card_table .textbox 
+{
+    width: 80%;
 }

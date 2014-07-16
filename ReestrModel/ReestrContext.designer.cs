@@ -45,7 +45,7 @@ namespace ReestrModel
     #endregion
 		
 		public ReestrContextDataContext() : 
-				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionStringWork, mappingSource)
+				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -747,7 +747,7 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int DocNumber
 		{
 			get
