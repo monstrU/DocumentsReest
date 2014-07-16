@@ -11,6 +11,8 @@ namespace ReestrFacade
 
     using ReestrModel;
 
+    using ModelUtils = ReestrFacade.Configurations.ModelUtils;
+
     public static class DocumentFacade
     {
         public static IList<DocumentModel> LoadDocuments()

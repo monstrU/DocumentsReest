@@ -44,12 +44,6 @@ namespace ReestrModel
     partial void DeleteDocument(Document instance);
     #endregion
 		
-		public ReestrContextDataContext() : 
-				base(global::ReestrModel.Properties.Settings.Default.ReestrStoreConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public ReestrContextDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

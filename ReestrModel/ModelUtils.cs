@@ -5,6 +5,8 @@ using System.Text;
 
 namespace ReestrModel
 {
+    using System.Configuration;
+
     using ReestrModel.Properties;
 
     public class ModelUtils
@@ -13,7 +15,8 @@ namespace ReestrModel
         {
             get
             {
-                return Settings.Default.ReestrStoreConnectionString;
+
+                return ConfigurationManager.ConnectionStrings["reestrdb"].ConnectionString;
             }
         }
     }

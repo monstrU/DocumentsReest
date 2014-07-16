@@ -22,37 +22,5 @@ namespace ReestrModel.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VVV-PC\\VVV;Initial Catalog=ReestrStore;Integrated Security=True")]
-        public string ReestrStoreConnectionString1 {
-            get {
-                return ((string)(this["ReestrStoreConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VVV;Initial Catalog=ReestrStore;Integrated Security=SSPI;AttachDBFile" +
-            "name=|DataDirectory|\\ReestrStore.mdf")]
-        public string ReestrStoreConnectionStringWork {
-            get {
-                return ((string)(this["ReestrStoreConnectionStringWork"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vvv-pc\\vvv2012;Initial Catalog=ReestrStore;Integrated Security=SSPI;A" +
-            "ttachDBFilename=|DataDirectory|\\ReestrStore.mdf")]
-        public string ReestrStoreConnectionString {
-            get {
-                return ((string)(this["ReestrStoreConnectionString"]));
-            }
-        }
     }
 }
