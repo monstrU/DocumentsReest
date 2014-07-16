@@ -15,6 +15,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
     using RCO.PopUpButtons;
 
     using ReestrFacade;
+    using ReestrFacade.Configurations;
+    using ReestrFacade.Utils;
 
     public partial class DocumentCard : PopUpPage
     {
@@ -133,7 +135,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             doc.Comments = comment;
 
             var dateAdmission = GetControlValue<TextBox>(fvDocument, "txtDateAdmission").Text;
-            doc.DateAdmission = ParseDateTime(dateAdmission);
+            doc.DateAdmission = ParserUtils.ParseDateTime(dateAdmission);
 
             
 
@@ -141,11 +143,6 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             
 
             return doc;
-        }
-
-        public static DateTime ParseDateTime(string valueString)
-        {
-            return DateTime.Parse(valueString);
         }
 
         public void InsertCard()

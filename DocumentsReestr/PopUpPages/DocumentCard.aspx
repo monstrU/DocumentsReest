@@ -18,9 +18,7 @@
     <script src="/Scripts/jquery.maskedinput.min.js"></script>
     <script src="/Scripts/jquery.filter_input.js"></script>
     <style type="text/css">
-        .datepicker {
-            width: 12ex;
-        }
+        
     </style>
     <script type="text/javascript">
         $(document).ready(function () {

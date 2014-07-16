@@ -65,6 +65,8 @@
     <Compile Include="Profiles\UpdateDocumentProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendersFacade.cs" />
+    <Compile Include="Utils\ParserUtils.cs" />
+    <Compile Include="Utils\PredicateBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

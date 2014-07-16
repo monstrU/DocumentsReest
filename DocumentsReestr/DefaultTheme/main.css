@@ -147,3 +147,7 @@ table.card_table .textbox
 {
     width: 80%;
 }
+.datepicker 
+{
+            width: 12ex;
+        }

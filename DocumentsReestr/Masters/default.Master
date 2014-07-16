@@ -7,6 +7,13 @@
     
     <link href="/DefaultTheme/main.css" rel="stylesheet" />
     <link href="/DefaultTheme/container.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery.ui.core.js"></script>
+    <script src="/Scripts/jquery.ui.datepicker.js"></script>
+    <script src="/Scripts/jquery.ui.datepicker-ru.js"></script>
+    <script src="/Scripts/jquery.maskedinput.min.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

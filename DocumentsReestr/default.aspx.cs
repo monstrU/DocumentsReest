@@ -10,6 +10,7 @@ namespace DocumentsReestr
     using RCO.PopUpButtons;
 
     using ReestrFacade;
+    using ReestrFacade.Utils;
 
     public partial class _default : System.Web.UI.Page
     {
@@ -48,6 +49,32 @@ namespace DocumentsReestr
                         pbtnEditDoc.PostParams.Add(new paramItem("docId", doc.DocumentId.ToString()));
                     }
                 }
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Nullable<DateTime> from = null;
+                Nullable<DateTime> to = null;
+                if (!string.IsNullOrEmpty(txtFromDateAdmission.Text))
+                {
+                    from = ParserUtils.ParseDateTime(txtFromDateAdmission.Text);
+                }
+
+                if (!string.IsNullOrEmpty(txtToDateAdmission.Text))
+                {
+                    to = ParserUtils.ParseDateTime(txtToDateAdmission.Text);
+                }
+
+                var docs = DocumentFacade.SearchDocuments(from, to);
+                gvDocuments.DataSource = docs;
+                gvDocuments.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
             }
         }
     }
