@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Карточка документа</title>
-    <link href="<%= ResolveUrl("~/DefaultTheme/main.css") %>"" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/DefaultTheme/main.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/DefaultTheme/container.css") %>" rel="stylesheet" />
     <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
     <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
@@ -18,9 +18,7 @@
     <script src="/Scripts/jquery.maskedinput.min.js"></script>
     <script src="/Scripts/jquery.filter_input.js"></script>
     <style type="text/css">
-        .datepicker {
-            width: 12ex;
-        }
+        
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -63,6 +61,13 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>срок исполнения</td>
+                            <td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator  "></asp:RequiredFieldValidator>
+                                </td>
+                        </tr>
+                        <tr>
                             <td>дата приема</td>
                             <td>
                                 <asp:TextBox ID="txtDateAdmission" runat="server" CssClass="datepicker"></asp:TextBox>
@@ -76,13 +81,7 @@
                                 <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
-                        <tr>
-                            <td>срок исполнения</td>
-                            <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator  "></asp:RequiredFieldValidator>
-                                </td>
-                        </tr>
+                        
                         <tr>
                             <td>комментарии</td>
                             <td>
@@ -103,6 +102,13 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>срок исполнения</td>
+                            <td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box" Text="<%# Item.TermExecutionCalculated %>"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" CssClass="error_validator numeric_box" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                        </tr>
+                        <tr>
                             <td>дата приема</td>
                             <td>
                                 <asp:TextBox ID="txtDateAdmission" runat="server" CssClass="datepicker" Text="<%# Item.DateAdmission %>"></asp:TextBox>
@@ -116,13 +122,7 @@
                                 <asp:RequiredFieldValidator ID="rfvSenderName" ControlToValidate="txtSenderName" CssClass="error_validator" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
-                        <tr>
-                            <td>срок исполнения</td>
-                            <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="term_exec numeric_box" Text="<%# Item.TermExecutionCalculated %>"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvTerm" ControlToValidate="txtTermExecution" CssClass="error_validator numeric_box" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
-                                </td>
-                        </tr>
+                        
                         <tr>
                             <td>комментарии</td>
                             <td>
@@ -150,7 +150,9 @@
         </div>
         <div>
             <asp:Button ID="btnOk" runat="server" Text="сохранить" OnClick="btnOk_Click" />
+            <asp:Button ID="btnDelete" runat="server" Text="удалить" OnClick="btnDelete_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="отменить" />
+            
         </div>
     </form>
 </body>

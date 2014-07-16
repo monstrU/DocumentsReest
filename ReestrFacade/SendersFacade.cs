@@ -12,6 +12,8 @@ namespace ReestrFacade
 
     using ReestrModel;
 
+    using ModelUtils = ReestrFacade.Configurations.ModelUtils;
+
     public class SendersFacade
     {
         public static IList<DocSenderModel> LoadSenders()

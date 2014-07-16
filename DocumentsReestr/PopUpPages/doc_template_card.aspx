@@ -7,7 +7,14 @@
     <title>Справочник типов документов</title>
     <link href="/DefaultTheme/main.css" rel="stylesheet" />
     <link href="/DefaultTheme/container.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery.filter_input.js"></script>
 </head>
+    <script>
+            $(document).ready(function() {
+                $('.numeric_box').filter_input({ regex: '[0-9]' });
+            });
+    </script>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -20,12 +27,16 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+                            </td>
                         </tr>
                         <tr>
                             <td>дата исполнения в днях</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" CssClass="numeric_box"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTermExecution" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+                            </td>
                         </tr>
                     </table>
                 </InsertItemTemplate>
@@ -34,12 +45,16 @@
                         <tr>
                             <td>название документа</td>
                             <td>
-                                <asp:TextBox ID="txtName" runat="server" Text="<%# Item.Name %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtName" runat="server" Text="<%# Item.Name %>"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvDocName" ControlToValidate="txtName" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+                            </td>
                         </tr>
                         <tr>
                             <td>дата исполнения в днях</td>
                             <td>
-                                <asp:TextBox ID="txtTermExecution" runat="server" Text="<%# Item.TermExecutionDays %>"></asp:TextBox></td>
+                                <asp:TextBox ID="txtTermExecution" runat="server" Text="<%# Item.TermExecutionDays %>"  CssClass="numeric_box"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTermExecution" ControlToValidate="txtTermExecution" runat="server" ErrorMessage="*" Display="Dynamic" CssClass="error_validator"></asp:RequiredFieldValidator>
+                            </td>
                         </tr>
                     </table>
                 </EditItemTemplate>

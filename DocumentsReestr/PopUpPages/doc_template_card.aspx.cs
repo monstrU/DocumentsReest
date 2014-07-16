@@ -40,6 +40,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 if (IsAdd)
                 {
                     fvDocTemplate.ChangeMode(FormViewMode.Insert);
+                    btnDelete.Visible = false;
                 }
                 else
                 {

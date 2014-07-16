@@ -7,14 +7,18 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="phContent" runat="server">
     <h2>Шаблоны документов</h2>
-    <asp1:PopUpButton ID="pbtnAddDoc" runat="server" Text="новый"  Url="~/PopUpPages/doc_template_card.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAddDoc_OnAfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px">
-        <PostParams>
-            <asp1:paramItem Key="add" KeyValue="1" />
-        </PostParams>
-    </asp1:PopUpButton>
+
     <asp:GridView ID="gvDocNames" runat="server" AutoGenerateColumns="False" DataKeyNames="DocNameId,Name,TermExecutionDays" ItemType="DomainModel.DocNameModel" OnRowCreated="gvDocNames_RowCreated" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
+
             <asp:TemplateField>
+                <HeaderTemplate>
+                    <asp1:PopUpButton ID="pbtnAddDoc" runat="server" Text="новый" Url="~/PopUpPages/doc_template_card.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnAddDoc_OnAfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px" ControlShowType="HyperLink" CssClass="header_command">
+                        <PostParams>
+                            <asp1:paramItem Key="add" KeyValue="1" />
+                        </PostParams>
+                    </asp1:PopUpButton>
+                </HeaderTemplate>
                 <ItemTemplate>
                     <asp1:PopUpButton ID="pbtnEditDoc" runat="server" Text="ред" ControlShowType="HyperLink" Url="~/PopUpPages/doc_template_card.aspx" IsDialog="False" isShowAddressBar="False" OnAfterChildClose="pbtnEditDoc_OnAfterChildClose" PostBack="True" windowHeight="400px" windowWidth="500px">
                     </asp1:PopUpButton>

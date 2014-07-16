@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
@@ -41,6 +41,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
@@ -52,6 +55,7 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -142,6 +146,10 @@
     <Content Include="DefaultTheme\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="dic\doc_templates_dic.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\csv_text.png" />
+    <Content Include="Images\pdf2.jpg" />
+    <Content Include="Images\REESTR.gif" />
+    <Content Include="Images\word_icon.png" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
     <Content Include="PopUpPages\doc_template_card.aspx" />
@@ -152,6 +160,7 @@
     <Content Include="Scripts\jquery.ui.core.js" />
     <Content Include="Scripts\jquery.ui.datepicker-ru.js" />
     <Content Include="Scripts\jquery.ui.datepicker.js" />
+    <Content Include="Senders\senders_list.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -210,10 +219,19 @@
       <DependentUpon>SenderName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Senders\senders_list.aspx.cs">
+      <DependentUpon>senders_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Senders\senders_list.aspx.designer.cs">
+      <DependentUpon>senders_list.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masters\default.Master" />
     <Content Include="DefaultTheme\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Binaries\arial.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

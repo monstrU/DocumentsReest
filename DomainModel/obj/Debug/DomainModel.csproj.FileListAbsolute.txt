@@ -2,9 +2,9 @@ D:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.dll
 D:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.pdb
 D:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.dll
 D:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.pdb
-D:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
 E:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.dll
 E:\Reestr\DocumentsReest\DomainModel\bin\Debug\DomainModel.pdb
 E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.dll
 E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.pdb
 E:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+D:\Reestr\DocumentsReest\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache

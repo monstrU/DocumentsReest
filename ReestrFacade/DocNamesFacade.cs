@@ -13,6 +13,8 @@ namespace ReestrFacade
 
     using ReestrModel;
 
+    using ModelUtils = ReestrFacade.Configurations.ModelUtils;
+
     public class DocNamesFacade
     {
         public static IList<DocNameModel> LoadDocNames()

@@ -54,26 +54,31 @@ namespace DomainModel
 
 
 
+
         /// <summary>
         /// вычисленная контрольная дата  исполнения
         /// </summary>
-        public DateTime ControlTermExecutionCalculated
+        public DateTime ControlTermExecutionModel
         {
             get
             {
-
-                DateTime corrected = DateAdmission.AddDays(TermExecutionCalculated);
-
-                if (DomainUtilities.IsSaturday(corrected))
-                {
-                    corrected = DomainUtilities.CorrectSaturday(corrected);
-                }
-                else if (DomainUtilities.IsSunday(corrected))
-                {
-                    corrected = DomainUtilities.CorrectSunday(corrected);
-                }
-                return corrected;
+                return ControlTermExecutionDate();
             }
+        }
+
+        private DateTime ControlTermExecutionDate()
+        {
+            DateTime corrected = this.DateAdmission.AddDays(this.TermExecutionCalculated);
+
+            if (DomainUtilities.IsSaturday(corrected))
+            {
+                corrected = DomainUtilities.CorrectSaturday(corrected);
+            }
+            else if (DomainUtilities.IsSunday(corrected))
+            {
+                corrected = DomainUtilities.CorrectSunday(corrected);
+            }
+            return corrected;
         }
 
         public bool IsCreatedFromDictionary

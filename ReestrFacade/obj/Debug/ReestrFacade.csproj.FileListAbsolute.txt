@@ -1,4 +1,3 @@
-D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.csprojResolveAssemblyReference.cache
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.Net4.dll
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.dll
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.pdb
@@ -8,17 +7,6 @@ D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.dll
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\DomainModel.pdb
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.pdb
 D:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.xml
+D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.csprojResolveAssemblyReference.cache
 D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.dll
 D:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.pdb
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.Net4.dll
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.dll
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrFacade.pdb
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.dll
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\DomainModel.dll
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.dll
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\DomainModel.pdb
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\ReestrModel.pdb
-E:\Reestr\DocumentsReest\ReestrFacade\bin\Debug\AutoMapper.xml
-E:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.csprojResolveAssemblyReference.cache
-E:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.dll
-E:\Reestr\DocumentsReest\ReestrFacade\obj\Debug\ReestrFacade.pdb

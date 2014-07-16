@@ -7,6 +7,13 @@
     
     <link href="/DefaultTheme/main.css" rel="stylesheet" />
     <link href="/DefaultTheme/container.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <link href="/DefaultTheme/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery.ui.core.js"></script>
+    <script src="/Scripts/jquery.ui.datepicker.js"></script>
+    <script src="/Scripts/jquery.ui.datepicker-ru.js"></script>
+    <script src="/Scripts/jquery.maskedinput.min.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -16,7 +23,7 @@
         <div class="container">
             <div class="header">
                             <div class="title_block ">
-                <h2>Реестр документов</h2>
+                                <img src="/Images/REESTR.gif" style="height: 45px;" alt="Логотип" /><h2>Журнал входящих документов</h2>
             </div>
             <div class="settings_block">
                 <asp:LoginName ID="lnBox" runat="server" CssClass="user_link" />

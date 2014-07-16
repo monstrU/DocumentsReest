@@ -30,3 +30,5 @@ E:\Reestr\DocumentsReest\DocumentsReestr\bin\AutoMapper.xml
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.csprojResolveAssemblyReference.cache
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.dll
 E:\Reestr\DocumentsReest\DocumentsReestr\obj\Debug\DocumentsReestr.pdb
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\itextsharp.dll
+D:\Reestr\DocumentsReest\DocumentsReestr\bin\itextsharp.xml

@@ -1,15 +1,12 @@
-﻿:focus, :active
-{
+﻿:focus, :active {
     outline: 0;
 }
 
-ul, ol
-{
+ul, ol {
     list-style: none;
 }
 
-img
-{
+img {
     border: 0;
 }
 
@@ -21,34 +18,36 @@ body {
     padding: 1ex;
 }
 
-.title_block
-{
+.title_block {
     display: inline-block;
+    
+}
+.title_block img 
+{
+    padding: 0;
+    margin: 0;    
 }
 
-    .title_block h2
-    {
+    .title_block h2 {
         display: inline-block;
         padding-left: 3ex;
+        vertical-align: middle;
     }
 
-.settings_block
-{
+.settings_block {
     float: right;
     display: inline-block;
     vertical-align: bottom;
-    line-height: 35px;
+    
     padding-top: 1ex;
     padding-bottom: 0;
 }
 
-a
-{
+a {
     color: #008BCE;
 }
 
-.menu
-{
+.menu {
     background-color: #00A558;
     padding: 1ex;
     margin-left: -1ex;
@@ -56,94 +55,130 @@ a
 }
 
 a.user_link,
-span.user_link
-{
+span.user_link {
     color: #00A558;
-}
-
-.menu a
-{
-    text-decoration: underline!important;
-    color: white;
-    font-weight: 700!important;
     
 }
-.menu a.static {
-    padding-right: 1ex!important;
+
+.menu a {
+    text-decoration: underline !important;
+    color: white;
+    font-weight: 700 !important;
 }
 
-.menu ul.dynamic 
-{
+    .menu a.static {
+        padding-right: 1ex !important;
+    }
+
+.menu ul.dynamic {
     background-color: #00A558;
     padding-left: 0.5ex;
     padding-right: 0.5ex;
-    
     border: 1px rgb(188, 189, 184) solid;
     border-top-width: 0;
 }
-.menu ul.dynamic a 
-{
-    padding: 1ex;    
-} 
-    .menu a:hover
-    {
-        color: rgb(25, 43, 140);
+
+    .menu ul.dynamic a {
+        padding: 1ex;
     }
 
-    h2
-{
-margin: 0 0 1em;
+.menu a:hover {
+    color: rgb(25, 43, 140);
 }
 
-.header
-{
+h2 {
+    margin: 0 0 1em;
+}
+
+.header {
     padding: 1ex;
 }
-.positive_tone 
-{
+
+.positive_tone {
     color: #00A558;
 }
-.negative_tone 
-{
+
+.negative_tone {
     color: #cb73ac;
 }
-.neutral_tone
-{
+
+.neutral_tone {
     color: rgb(182, 173, 159);
 }
-a.command_link 
-{
+
+a.command_link {
     text-decoration: none;
     color: #99A4E0;
-    border-bottom: 1px  dotted;
+    border-bottom: 1px dotted;
     line-height: 1.2em;
     font-size: 90%;
 }
-.error_box 
-{
+
+.error_box {
     color: red;
-    font-weight: 700;    
-}
-.error_validator 
-{
-    color: white;
-    font-weight: 700;            
-}
-table.card_table 
-{
-    width: 70ex;    
-}
-table.card_table  td:first-child
-{
-    width: 20ex;
-    text-align: right;
     font-weight: 700;
 }
-table.card_table  td 
-{
-    width: 40ex;    
+
+.error_validator {
+    color: white;
+    font-weight: 700;
 }
-table.card_table .textbox 
-{
-    width: 80%;
+
+table.card_table {
+    width: 70ex;
+}
+
+    table.card_table td:first-child {
+        width: 20ex;
+        text-align: right;
+        font-weight: 700;
+    }
+
+    table.card_table td {
+        width: 40ex;
+    }
+
+    table.card_table .textbox {
+        width: 80%;
+    }
+
+.datepicker {
+    width: 12ex;
+}
+
+.expired_item {
+    color: white !important;
+    font-weight: 700;
+    background-color: #f4cce6 !important;
+}
+
+.execution_today {
+    color: #00a558 !important;
+    font-weight: 700;
+}
+
+.header_command {
+    color: white;
+}
+
+.search_box {
+    text-align: center;
+}
+
+    .search_box table {
+        display: inline-block;
+    }
+
+    .search_box input {
+        padding-right: 2ex;
+    }
+
+.button_block {
+    text-align: center;
+}
+
+.export_box {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-left: 20ex;
 }
