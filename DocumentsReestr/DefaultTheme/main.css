@@ -137,17 +137,40 @@ table.card_table {
 .datepicker {
     width: 12ex;
 }
+
 .expired_item {
-    color: white!important;
+    color: white !important;
     font-weight: 700;
-    background-color: #f4cce6!important;
+    background-color: #f4cce6 !important;
 }
-.execution_today 
-{
-    color: #00a558!important;
+
+.execution_today {
+    color: #00a558 !important;
     font-weight: 700;
 }
-.header_command 
-{
-    color: white;    
+
+.header_command {
+    color: white;
+}
+
+.search_box {
+    text-align: center;
+}
+
+    .search_box table {
+        display: inline-block;
+    }
+
+    .search_box input {
+        padding-right: 2ex;
+    }
+
+.button_block {
+    text-align: center;
+}
+
+.export_box {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-left: 20ex;
 }

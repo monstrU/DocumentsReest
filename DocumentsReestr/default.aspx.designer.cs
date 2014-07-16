@@ -49,22 +49,13 @@ namespace DocumentsReestr {
         protected global::System.Web.UI.HtmlControls.HtmlInputText idDocName;
         
         /// <summary>
-        /// cbTodayExecute control.
+        /// rbtnPeriodFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbTodayExecute;
-        
-        /// <summary>
-        /// cbExpired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbExpired;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtnPeriodFilter;
         
         /// <summary>
         /// btnSearch control.
@@ -83,6 +74,33 @@ namespace DocumentsReestr {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// ibtnWord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnWord;
+        
+        /// <summary>
+        /// ibtnCsv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnCsv;
+        
+        /// <summary>
+        /// ibtnPdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnPdf;
         
         /// <summary>
         /// gvDocuments control.
