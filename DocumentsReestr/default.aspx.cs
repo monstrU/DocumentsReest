@@ -12,6 +12,8 @@ namespace DocumentsReestr
     using ReestrFacade;
     using ReestrFacade.Utils;
 
+    using ReestrModel.Extentions;
+
     public partial class _default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -38,6 +40,9 @@ namespace DocumentsReestr
 
         protected void gvDocuments_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
+            const string ExpiredCss = "expired_item";
+            const string ExecutionTodayCss = "execution_today";
+            
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 var pbtnEditDoc = e.Row.FindControl("pbtnEditDoc") as PopUpButton;
@@ -48,6 +53,8 @@ namespace DocumentsReestr
                     {
                         pbtnEditDoc.PostParams.Add(new paramItem("docId", doc.DocumentId.ToString()));
                     }
+                    if (doc.IsExpired()) e.Row.CssClass = ExpiredCss;
+                    if (doc.IsExecutionToday()) e.Row.CssClass = ExecutionTodayCss;
                 }
             }
         }
@@ -68,7 +75,13 @@ namespace DocumentsReestr
                     to = ParserUtils.ParseDateTime(txtToDateAdmission.Text);
                 }
 
-                var docs = DocumentFacade.SearchDocuments(from, to, idSender.Value, idDocName.Value, cbTodayExecute.Checked);
+                var docs = DocumentFacade.SearchDocuments(from
+                                        , to
+                                        , idSender.Value
+                                        , idDocName.Value
+                                        , cbTodayExecute.Checked
+                                        , cbExpired.Checked);
+
                 gvDocuments.DataSource = docs;
                 gvDocuments.DataBind();
             }

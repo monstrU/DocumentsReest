@@ -52,13 +52,19 @@ namespace DomainModel
 
         public Guid CreatorUserId { get; set; }
 
-       
 
-        
+
+
         /// <summary>
         /// вычисленная контрольная дата  исполнения
         /// </summary>
-        public DateTime ControlTermExecutionModel { get; set; }
+        public DateTime ControlTermExecutionModel
+        {
+            get
+            {
+                return ControlTermExecutionDate();
+            }
+        }
 
         private DateTime ControlTermExecutionDate()
         {

@@ -28,8 +28,7 @@ namespace ReestrFacade.Profiles
 
             this.CreateMap<Document, DocumentModel>()
                 .ForMember(d => d.DocSender, mo => mo.MapFrom(d => d.DocSender))
-                .ForMember(d => d.DocName, mo => mo.MapFrom(d => d.DocName))
-                .ForMember(d => d.ControlTermExecutionModel, mo => mo.MapFrom(d => d.ControlTermExecutionCalculated));
+                .ForMember(d => d.DocName, mo => mo.MapFrom(d => d.DocName));
 
             this.CreateMap<DocumentModel, Document>()
                 .ForMember(d => d.DocSenderId, mo => mo.MapFrom(dm => dm.DocSender.DocSenderId))

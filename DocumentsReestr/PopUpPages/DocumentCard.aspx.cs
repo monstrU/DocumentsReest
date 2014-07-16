@@ -40,8 +40,8 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
         {
             CancelButton = btnCancel;
 
-            
-            
+
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -76,23 +76,24 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
                 idDocNameId.Value = doc.DocName.DocNameId.ToString();
                 idDocNameText.Value = doc.DocName.Name;
                 idTermExecution.Value = doc.DocName.TermExecutionDays.ToString();
-                
-                GetControlValue<TextBox>(fvDocument, "txtTermExecution").Enabled=false;
-            }
-            
 
-            
+                GetControlValue<TextBox>(fvDocument, "txtTermExecution").Enabled = false;
+            }
+
+
+
         }
 
         private DocumentModel ReadDocument()
         {
             DocumentModel doc = new DocumentModel();
 
-            
+
             if (!IsAdd)
             {
                 doc.DocumentId = docId;
             }
+
 
             var docName = GetControlValue<TextBox>(fvDocument, "txtDocName").Text;
             var idDocNameTextForm = idDocNameText.Value;
@@ -111,7 +112,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             else
             {
                 doc.Name = docName;
-                
+
                 var termExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution").Text;
                 doc.TermExecution = Convert.ToInt32(termExecution);
             }
@@ -137,27 +138,27 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             var dateAdmission = GetControlValue<TextBox>(fvDocument, "txtDateAdmission").Text;
             doc.DateAdmission = ParserUtils.ParseDateTime(dateAdmission);
 
-            
 
 
-            
+
+
 
             return doc;
         }
 
         public void InsertCard()
         {
-                var doc = this.ReadDocument();
-                doc.Created = DateTime.Now;
-                DocumentFacade.SaveDocument(doc);
+            var doc = this.ReadDocument();
+            doc.Created = DateTime.Now;
+            DocumentFacade.SaveDocument(doc);
         }
 
         public void UpdateCard(DocumentModel document)
         {
-            
-                DocumentFacade.UpdateDocument(document);
-            
-            
+
+            DocumentFacade.UpdateDocument(document);
+
+
         }
         protected void btnOk_Click(object sender, EventArgs e)
         {
@@ -189,7 +190,7 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idDocNameText.Value = docNameText.ToString();
             idTermExecution.Value = termExecution.ToString();
             GetControlValue<TextBox>(fvDocument, "txtDocName").Text = docNameText.ToString();
-            var txtTermExecution =GetControlValue<TextBox>(fvDocument, "txtTermExecution");
+            var txtTermExecution = GetControlValue<TextBox>(fvDocument, "txtTermExecution");
             txtTermExecution.Enabled = false;
             txtTermExecution.Text = termExecution.ToString();
 
@@ -203,6 +204,19 @@ namespace DocumentsReestr.PopupButtons.PopUpPages
             idSenderId.Value = senderId.ToString();
             idSenderName.Value = senderNameId.ToString();
             GetControlValue<TextBox>(fvDocument, "txtSenderName").Text = senderNameId.ToString();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DocumentFacade.DeleteDocument(new DocumentModel() { DocumentId = docId });
+                this.CloseDialog();
+            }
+            catch (Exception exception)
+            {
+                lblError.Text = exception.Message;
+            }
         }
     }
 }

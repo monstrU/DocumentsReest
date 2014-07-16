@@ -35,7 +35,8 @@ namespace ReestrFacade
             , Nullable<DateTime> admissionTo
             , string senderName
             , string docName
-            , bool executeToday)
+            , bool executeToday
+            , bool expired)
         {
             using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
             {
@@ -61,25 +62,28 @@ namespace ReestrFacade
                     wheresList.Add(d => d.DocSender.SenderName.Contains(senderName));
 
                 if (!string.IsNullOrEmpty(docName))
-                    wheresList.Add(d => (d.DocName==null && d.Name.Contains(docName)) || (d.DocName.Name.Contains(docName)));
+                    wheresList.Add(d => (d.DocName == null && d.Name.Contains(docName)) || (d.DocName.Name.Contains(docName)));
 
                 if (executeToday)
-                    wheresList.Add(d => d.DateAdmission.Date.Equals(DateTime.Now.Date));
+                    wheresList.Add(d => d.ControlTermExecutionCalculated.Date.Equals(DateTime.Now.Date));
 
-                Expression<Func<Document, bool>> wherePart =null;
+                if (expired)
+                    wheresList.Add(d => d.ControlTermExecutionCalculated.Date < DateTime.Now.Date);
+
+                Expression<Func<Document, bool>> wherePart = null;
                 if (wheresList.Any())
                 {
                     wherePart = wheresList.Aggregate((current, w) => current.And(w));
                 }
 
                 IEnumerable<Document> result;
-                if (wherePart!=null)
-                 result = context.Documents.Where(wherePart);
+                if (wherePart != null)
+                    result = context.Documents.Where(wherePart);
                 else
                 {
                     result = context.Documents;
                 }
-                result=result.OrderByDescending(d => d.DateAdmission);
+                result = result.OrderByDescending(d => d.DateAdmission);
                 var converter = new DocumentConverter();
                 return result.Select(converter.Convert).ToList();
             }
@@ -140,6 +144,16 @@ namespace ReestrFacade
 
                 context.SubmitChanges();
 
+            }
+        }
+
+        public static void DeleteDocument(DocumentModel document)
+        {
+            using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
+            {
+                var doc = context.Documents.FirstOrDefault(d => d.DocumentId == document.DocumentId);
+                context.Documents.DeleteOnSubmit(doc);
+                context.SubmitChanges();
             }
         }
     }

@@ -148,7 +148,9 @@
         </div>
         <div>
             <asp:Button ID="btnOk" runat="server" Text="сохранить" OnClick="btnOk_Click" />
+            <asp:Button ID="btnDelete" runat="server" Text="удалить" OnClick="btnDelete_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="отменить" />
+            
         </div>
     </form>
 </body>

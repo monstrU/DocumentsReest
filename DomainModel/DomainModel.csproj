@@ -46,6 +46,7 @@
     <Compile Include="DocumentModel.cs" />
     <Compile Include="DocumentSender.cs" />
     <Compile Include="DomainUtilities.cs" />
+    <Compile Include="Extentions\DocumnetModelExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
