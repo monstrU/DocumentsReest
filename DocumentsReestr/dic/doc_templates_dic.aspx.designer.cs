@@ -13,15 +13,6 @@ namespace DocumentsReestr.PopupButtons.dic {
     public partial class doc_templates_dic {
         
         /// <summary>
-        /// pbtnAddDoc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::RCO.PopUpButtons.PopUpButton pbtnAddDoc;
-        
-        /// <summary>
         /// gvDocNames control.
         /// </summary>
         /// <remarks>

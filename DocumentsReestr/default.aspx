@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="phContent" runat="server">
     <div class="info_box">
-        <h2>Журнал входящих документов</h2>
+        <h2>Входящие документы</h2>
         <div class="search_box">
             <table>
                 <tr>

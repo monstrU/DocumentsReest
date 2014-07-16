@@ -148,6 +148,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\csv_text.png" />
     <Content Include="Images\pdf2.jpg" />
+    <Content Include="Images\REESTR.gif" />
     <Content Include="Images\word_icon.png" />
     <Content Include="PopUpPages\DocNames.aspx" />
     <Content Include="PopUpPages\DocumentCard.aspx" />
