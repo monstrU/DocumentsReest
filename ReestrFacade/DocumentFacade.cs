@@ -31,7 +31,11 @@ namespace ReestrFacade
         }
 
 
-        public static IList<DocumentModel> SearchDocuments(Nullable<DateTime> admissionFrom, Nullable<DateTime> admissionTo)
+        public static IList<DocumentModel> SearchDocuments(Nullable<DateTime> admissionFrom
+            , Nullable<DateTime> admissionTo
+            , string senderName
+            , string docName
+            , bool executeToday)
         {
             using (var context = new ReestrContextDataContext(ModelUtils.ConnectionString))
             {
@@ -52,6 +56,16 @@ namespace ReestrFacade
                         wheresList.Add(d => d.DateAdmission <= admissionTo.GetValueOrDefault());
                     }
                 }
+
+                if (!string.IsNullOrEmpty(senderName))
+                    wheresList.Add(d => d.DocSender.SenderName.Contains(senderName));
+
+                if (!string.IsNullOrEmpty(docName))
+                    wheresList.Add(d => (d.DocName==null && d.Name.Contains(docName)) || (d.DocName.Name.Contains(docName)));
+
+                if (executeToday)
+                    wheresList.Add(d => d.DateAdmission.Date.Equals(DateTime.Now.Date));
+
                 Expression<Func<Document, bool>> wherePart =null;
                 if (wheresList.Any())
                 {

@@ -68,7 +68,7 @@ namespace DocumentsReestr
                     to = ParserUtils.ParseDateTime(txtToDateAdmission.Text);
                 }
 
-                var docs = DocumentFacade.SearchDocuments(from, to);
+                var docs = DocumentFacade.SearchDocuments(from, to, idSender.Value, idDocName.Value, cbTodayExecute.Checked);
                 gvDocuments.DataSource = docs;
                 gvDocuments.DataBind();
             }

@@ -52,28 +52,27 @@ namespace DomainModel
 
         public Guid CreatorUserId { get; set; }
 
+       
 
-
+        
         /// <summary>
         /// вычисленная контрольная дата  исполнения
         /// </summary>
-        public DateTime ControlTermExecutionCalculated
+        public DateTime ControlTermExecutionModel { get; set; }
+
+        private DateTime ControlTermExecutionDate()
         {
-            get
+            DateTime corrected = this.DateAdmission.AddDays(this.TermExecutionCalculated);
+
+            if (DomainUtilities.IsSaturday(corrected))
             {
-
-                DateTime corrected = DateAdmission.AddDays(TermExecutionCalculated);
-
-                if (DomainUtilities.IsSaturday(corrected))
-                {
-                    corrected = DomainUtilities.CorrectSaturday(corrected);
-                }
-                else if (DomainUtilities.IsSunday(corrected))
-                {
-                    corrected = DomainUtilities.CorrectSunday(corrected);
-                }
-                return corrected;
+                corrected = DomainUtilities.CorrectSaturday(corrected);
             }
+            else if (DomainUtilities.IsSunday(corrected))
+            {
+                corrected = DomainUtilities.CorrectSunday(corrected);
+            }
+            return corrected;
         }
 
         public bool IsCreatedFromDictionary

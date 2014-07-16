@@ -613,6 +613,8 @@ namespace ReestrModel
 		
 		private System.Nullable<int> _TermExecution;
 		
+		private System.DateTime _ControlTermExecutionCalculated;
+		
 		private EntityRef<aspnet_User> _aspnet_User;
 		
 		private EntityRef<DocName> _DocName;
@@ -643,6 +645,8 @@ namespace ReestrModel
     partial void OnNameChanged();
     partial void OnTermExecutionChanging(System.Nullable<int> value);
     partial void OnTermExecutionChanged();
+    partial void OnControlTermExecutionCalculatedChanging(System.DateTime value);
+    partial void OnControlTermExecutionCalculatedChanged();
     #endregion
 		
 		public Document()
@@ -741,7 +745,7 @@ namespace ReestrModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="Int NOT NULL")]
 		public int DocNumber
 		{
 			get
@@ -861,6 +865,26 @@ namespace ReestrModel
 					this._TermExecution = value;
 					this.SendPropertyChanged("TermExecution");
 					this.OnTermExecutionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ControlTermExecutionCalculated", DbType="DateTime NOT NULL")]
+		public System.DateTime ControlTermExecutionCalculated
+		{
+			get
+			{
+				return this._ControlTermExecutionCalculated;
+			}
+			set
+			{
+				if ((this._ControlTermExecutionCalculated != value))
+				{
+					this.OnControlTermExecutionCalculatedChanging(value);
+					this.SendPropertyChanging();
+					this._ControlTermExecutionCalculated = value;
+					this.SendPropertyChanged("ControlTermExecutionCalculated");
+					this.OnControlTermExecutionCalculatedChanged();
 				}
 			}
 		}
